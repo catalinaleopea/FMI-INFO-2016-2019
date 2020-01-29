@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="ro" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+    html {
+        width: 100%;
+        height: 100%;
+    }
+    body {
+        height: 99%;
+        width: 99%;
+    }
+    #load {
+        width: 75%;
+        height: 500px;
+        position: absolute;
+        background-color: lightblue;
+        top: 30%;
+        left: 10%;
+        display: block;
+    }
+    #loads {
+        text-align: center;
+        font-size: 35px;
+        color: purple;
+        font-weight: bold;
+        padding: 10px;
+    }  
+    #loading {
+        width: 80%;
+        height: 40px;
+        border: 2px solid purple;
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        overflow: hidden;
+    }
+    #progress {
+        height: 100%;
+        background-color: purple;
+        width: 0%;
+    }
+    </style>
+    <title>War for the Thrones</title>
+</head>
+<body>
+    <div id="load">
+        <p id="loads">Jocul se incarca...</p>
+        <div id="loading">
+            <div id="progress"></div>
+        </div>
+    </div>
+</body>
+</html>	

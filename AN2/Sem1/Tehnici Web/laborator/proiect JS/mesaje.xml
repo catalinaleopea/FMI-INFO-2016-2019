@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language>
+	<mesaje lang ="ro">
+		<mesaj id="pierdut">Ai pierdut!</mesaj>
+		<mesaj id="castig">Ai castigat!</mesaj>
+		<mesaj id="intro">Foloseste sagetile sus/jos pentru a te deplasa si sageata dreapta pentru a trimite un soldat.</mesaj>
+	</mesaje>
+	<mesaje lang="en">
+		<mesaj id="pierdut">You lost!</mesaj>
+		<mesaj id="castig">You won!</mesaj>
+		<mesaj id="intro">Use up and down arrows to move and right arrow to send a soldier</mesaj>
+	</mesaje>
+</language>

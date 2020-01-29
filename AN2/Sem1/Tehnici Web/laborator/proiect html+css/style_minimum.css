@@ -1,0 +1,68 @@
+@media screen and (max-width:699px){
+	html{font-size:12px;}
+	.logo {display:none;}
+	.corp>h1#info {font-size:25px; top:40%;}
+	#case {padding-top:3em;}
+	nav ul li {float:none; width:50%;}
+	nav ul ul {top:0; left:100%; width:100%;}
+	.center {flex-wrap:wrap; padding-bottom:1em;}
+	.body>#continut>section {width:100%; padding-right:2em; padding-top:1em;}
+	#continut { flex-wrap:wrap; }
+	.flex {flex-wrap:wrap;}
+	#case {display:none;}
+	#harta>img {height:auto;}
+	#harta>figcaption {padding-right:1em;}
+	#fig1>img{height:auto;}
+	.blog_last {padding-bottom:2em;}
+	
+	
+	table,table tr{
+		border:none;
+		padding:0;
+		margin:0;
+		display:block;
+	}
+	table td{
+		display:block;
+		padding:0.2em;
+		box-sizing:border-box;
+	}
+	table thead{
+		display:none;
+	}
+	table tbody td:nth-child(1)::before{
+		content:"Nume: ";
+	}
+	table tbody td:nth-child(2)::before{
+		content:"Descriere: ";
+	}
+
+	table td{
+		border-bottom:none;
+		border-top:none;
+		float:left;
+		width:100%;
+		padding-left:2%;
+		padding-right:3%;
+		line-height:150%;
+	}
+	table td:before{
+		float:left;
+		width:20%;
+		font-weight:bold;
+		margin-right:1em;
+		padding:0.1em;
+		line-height:120%;
+	}
+	table td:last-child{
+		border-bottom:2px dashed grey;
+		padding-bottom:1em;
+	}
+	table tr:first-child  td:first-child{
+		border-top:3px solid black;
+	}
+	table tr:last-child td:last-child{
+		border-bottom:3px solid black;
+	}
+	
+}

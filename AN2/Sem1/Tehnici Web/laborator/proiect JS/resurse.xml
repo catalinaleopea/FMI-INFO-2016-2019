@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resurse>
+    <imagini>
+        <imagine tip="protagonist" w="10" h="10" id="tormund" aparitie="multipla">
+            img/protagonisti/tormund.jpg
+        </imagine>
+        <imagine tip="protagonist" w="20" h="20" id="wilding" aparitie="multipla">
+            img/protagonisti/wilding.jpg
+        </imagine>
+        <imagine tip="protagonist" w="20" h="20" id="daenerys" aparitie="singulara">
+            img/protagonisti/daenerys.jpg
+        </imagine>
+        <imagine tip="adversar" w="20" h="40" id="night_king" aparitie="singulara">
+            img/adversari/night_king.png
+        </imagine>
+        <imagine tip="adversar" w="20" h="40" id="walker" aparitie="multipla">
+            img/adversari/walker.jpg
+        </imagine>
+        <imagine tip="adversar" w="20" h="40" id="walker2" aparitie="multipla">
+            img/adversari/walker2.jpg
+        </imagine>
+        <imagine tip="fundal" w="600" h="600" id="fundal_joc" aparitie="singulara">
+            img/fundal/background.png
+        </imagine>
+        <imagine tip="fundal" w="600" h="600" id="fundal_setari" aparitie="singulara">
+            img/fundal/background_setari.png
+        </imagine>
+    </imagini>
+    <sunete>
+        <sunet id="strigat_in">
+            audio/soldat_in.ogg
+        </sunet>
+        <sunet id="strigat_out">
+            audio/soldat_out.ogg
+        </sunet>
+        <sunet id="sunet_fundal">
+            audio/theme_song.ogg
+        </sunet>
+    </sunete>
+    <fisiere_video>
+        <video id="intro">
+            video/intro.ogv
+        </video>
+    </fisiere_video>
+</resurse>

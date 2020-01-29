@@ -1,0 +1,6 @@
+@media screen and (min-width:1000px) and (max-width:1500px){
+	html{font-size:14px;}
+	.logo {display:none;}
+	.corp>h1#info {font-size:30px;}
+	#case {padding-top:3em;}
+}

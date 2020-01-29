@@ -1,0 +1,105 @@
+@charset "utf-8";
+* {padding:0; margin:0;}
+html { text-align:justify; font-size:16px; }
+
+/* header */
+header {width:90%; margin:0 auto;}
+
+/* logo */
+.logo {float:left; width:20%;}
+
+body {background:#2e2e2e url(images/footer_bg.gif) top repeat-x; position:relative; }
+/*body { background:#3d3d3d;}*/
+
+.main { width:70%; margin:0 auto; background:#f0f0f0 url(images/main_bg.png) top center repeat-x; padding-top:1em; padding-bottom:3em; }
+
+/* meniu sus*/
+nav ul {list-style: none;  position: relative;  margin: 0;  padding: 0;}
+nav ul li {position:relative; float:left; width:7em;}
+nav ul li a,nav ul li div {display:block; text-align:center; background-color:#f0f0f0; color:black; text-decoration:none; font-family:monospace; font-weight:bold; font-size:1em; line-height:200%;}
+nav ul li a:hover,nav ul li div:hover {background-color:#d9d9d9;}
+nav ul ul {display:none; position:absolute; top:100%; left:0; width:100%;}
+nav ul ul li {float:none; width:100%; height:100%;}
+nav ul li:hover>ul {display:block;}
+nav ul ul a {line-height:120%; color:#112233;}
+nav ul ul a:hover {background-color:#b3b3b3;}
+
+figure { padding-bottom:2em; height:100%;}
+figure>img {border:2px solid black;}
+
+.body{clear:both; padding-top:2em; margin: 2em 2em 2em 2em;}
+.body h1 { font: normal 24px "Trebuchet MS", Arial, Helvetica, sans-serif; color:black; padding:10px 0; margin:0 0 10px 0; text-shadow:3px 3px #f0f0f0; font-size:2em; }
+.body h2 { font: normal 24px "Trebuchet MS", Arial, Helvetica, sans-serif; color:#494949; padding:10px 0; margin:0 0 10px 0; }
+.body section p,.body article p { font:normal 16px Arial, Helvetica, sans-serif; color:#848484; line-height:1.8em; padding:5px 0; margin:0;}
+#continut { display:flex; }
+.body>#continut>section>h2 { color:#4f4f4f; font: bold 24px "Trebuchet MS", Arial, Helvetica, sans-serif;  }
+.body>#continut>section {width:60%; padding-right:2em; padding-top:1em;}
+
+.corp{clear:both; background-color:#3d3d3d; position:relative; bottom:3em; width:100%; padding-bottom:1em;
+	animation: opac 5s infinite;
+}
+
+@keyframes opac{
+	50% {opacity:0.7;}
+	100%{opacity:1;}
+}
+
+.corp>.center {width:60%; margin:0 auto;}
+.corp h1#info { font: normal 24px "Trebuchet MS", Arial, Helvetica, sans-serif; color:#b7b7b7; padding:10px 0; margin:0 0 10px 0;
+position:absolute; left:7%; top:30%; font-size:50px; }
+.center {display:flex;}
+.center>section:first-child ul{list-style-type:none;}
+.center h2 { font: normal 18px "Trebuchet MS", Arial, Helvetica, sans-serif; color:#b7b7b7; padding:10px 0; margin:0;}
+.center a { color:#317c91; text-decoration:none; }
+.center p {font: normal 11px Arial, Helvetica, sans-serif; color:#919191; padding:5px 0; margin:0; line-height:1.8em;}
+.center ul { padding:0; margin:0; list-style:none;}
+.center li { padding:5px 0; margin:0;  border-bottom:1px solid #404040; }
+.center li a { font: normal 11px Arial, Helvetica, sans-serif; color:#757575; padding:5px 0 5px 0; margin:0;text-decoration:none;}
+.center li a:hover { color:#317c91; text-decoration:none;}
+.center .blog { width:70%; padding:15px 40px 15px 0;}
+
+footer { position:fixed; bottom:0; width:100%; padding:15px;  background:#2e2e2e url(images/footer_bg.gif) top repeat-x;}
+.pozitie {width:60%; margin:0 auto;}
+.pozitie p { font:normal 12px Arial, Helvetica, sans-serif; color:#707070;}
+.pozitie a { font:bold 12px Arial, Helvetica, sans-serif; color:#707070; text-decoration:none; }
+.left {float:left; width:50%; padding-right:1em;}
+
+
+.flex {display:flex; padding-top:1em;}
+.flex>p {padding-right:1em; width:50%;}
+.flex>figure {padding-left:3em; width:50%;}
+
+#case {float:right; width:50%; padding-left:2em; text-shadow:2px 2px #f0f0f0;}
+#case>img{width:100%; height:100%;}
+th {font-weight:bold; color:black; text-align:center; }
+td {color:black; font-weight:normal;}
+th,td {border:1px solid #b7b7b7; padding:1em;}
+tr {
+	animation-name:bg;
+	animation-duration:3s;
+	animation-fill-mode:forwards;
+	animation-iteration-count:infinite;
+	animation-play-state:paused;
+}
+tr:hover {animation-play-state:running;}
+@keyframes bg{
+	50%{background-color:red;}
+	100%{background-color:transparent;}
+}
+table {width:100%; border-collapse:collapse;}
+caption{padding-top:2em; padding-bottom:1em; font-weight:bold; font-size:1em;}
+
+#harta { width:100%; padding:2em;}
+#harta>img {
+	width:90%; 
+	animation-name:rot;
+	animation-duration:10s;
+	animation-fill-mode:forwards;
+	animation-iteration-count:infinite;
+	animation-play-state:paused;
+}
+#harta>img:hover {animation-play-state:running;}
+@keyframes rot{
+	100%{transform:rotate(360deg);}
+}
+.fig2>img{width:90%; height:auto;}
