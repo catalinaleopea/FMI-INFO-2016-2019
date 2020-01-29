@@ -1,0 +1,151 @@
+//Program care deschide un fisier si schimba caracterul ch1 cu caracterul ch2(ch1,2,date.in parametrii din terminal)
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <string.h>
+int main(int argc,char *argv[])
+{
+    if(argc!=4)
+    {   
+        write(STDOUT_FILENO,"Eroare,prea putine argumente",strlen("Eroare,prea putine argumente"));
+        return -1;
+    }
+    int descriptor=open(argv[1],O_RDWR);
+    if(descriptor<0)
+    {
+       puts("Fisierul nu s-a putut deschide!");
+       return -1;
+    }
+    char sursa=argv[2][0];
+    char destinatie=argv[3][0];
+    char caracter_fisier;
+    while(read(descriptor,&caracter_fisier,1))
+    {
+       if(caracter_fisier==sursa)
+       {
+          lseek(descriptor,-1,SEEK_CUR);
+          write(descriptor,&destinatie,1);
+       }
+    }
+    close(descriptor);
+    return 0;
+}
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <string.h>
+#include <ctype.h>
+int getline2(int descriptor)
+{
+   char caracter_fisier;
+   int nr_octeti_cititi;
+   int result=0;
+   while((nr_octeti_cititi=read(descriptor,&caracter_fisier,1)>0) && (strchr(" \t\n",caracter_fisier)!=NULL))
+   {}
+      if(nr_octeti_cititi==0)
+         return 0;
+   while((nr_octeti_cititi=read(descriptor,&caracter_fisier,1)>0) && (isdigit(caracter_fisier)))
+   {
+      result=result*10+(caracter_fisier-'0');
+   }
+   return result;
+}
+int main(int argc,char *argv[])
+{
+    if(argc!=2)
+    {   
+        write(STDOUT_FILENO,"Eroare,prea putine argumente",strlen("Eroare,prea putine argumente"));
+        return -1;
+    }
+    int descriptor=open(argv[1],O_RDONLY);
+    if(descriptor<0)
+    {
+       puts("Fisierul nu s-a putut deschide!");
+       return -1;
+    }
+    int x=getline2(descriptor);
+    printf("%d\n",x);
+    close(descriptor);
+    return 0;
+}
+
+8 November 09:18
+Pufuleț
+#include<stdio.h>
+	#include<sys/types.h>
+	#include<sys/stat.h>
+	#include<unistd.h>
+//typedef int IntSO;
+//typedef unsigned long off_t;
+
+int main(int argc, char* argv[]){
+	if(argc<2)
+	{
+		puts("Numar insuficient de argumente");
+		return -1;
+	}
+	//IntSO a=3;
+	struct stat informatiiDespreFisier;
+	int statReturnValue=stat(argv[1], &informatiiDespreFisier);
+	
+	if(statReturnValue == -1){
+		printf("Nu s-au putut informatiile despre %s\n",argv[1]);
+		return -1;
+	}
+	printf("%d\n", (int)informatiiDespreFisier.st_size); //typecast la int, altfel eroare
+
+	if(S_ISDIR(informatiiDespreFisier.st_mode)){
+	puts("Fisierul este fisier obisnuit");
+	}
+	if(S_ISFIFO(informatiiDespreFisier.st_mode)){
+	puts("Fisierul este fisier de tip tub");
+	}
+	if(informatiiDespreFisier.st_mode &(S_IRUSR | S_IWUSR)==S_ISUSR |S_IWUSR){
+		puts("Proprietarul are drept de citire si de scriere");
+	}
+	else {puts("Proprietarul nu are drept de citire sau de scriere");}
+
+	return 0;
+}
+
+Pufuleț
+#include<stdio.h>
+	#include<sys/types.h>
+	#include<sys/stat.h>
+	#include<unistd.h>
+	#include<dirent.h>
+
+int main(int argc, char* argv[]){
+	if(argc<2)
+	{
+		puts("Numar insuficient de argumente");
+		return -1;
+	}
+	
+	chdir(argv[1]); //schimbam directorul de lucru,echivalent cu cd din terminal
+	DIR *director=opendir(argv[1]);
+	if(director==NULL){
+	puts("Directorul nu s-a putut deschide");
+	return -1;
+	}
+
+	struct dirent* intrareInDirector;
+	intrareInDirector=readdir(director);
+	while(intrareInDirector !=NULL){
+		puts(intrareInDirector->d_name);
+		intrareInDirector= readdir(director);
+	}
+	rewinddir(director);//muta capul de citire la inceput 
+	intrareInDirector=readdir(director);
+	while(intrareInDirector !=NULL){
+		puts(intrareInDirector->d_name);
+		intrareInDirector= readdir(director);
+	}
+	closedir(director);
+
+	return 0;
+}

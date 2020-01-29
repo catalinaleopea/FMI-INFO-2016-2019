@@ -1,0 +1,104 @@
+min 6prezente
+2 teste- weekend inainte de 1 dec (primul capitol- fisiere si directoare)-proba teoretica 30% grila
+din cartea de pe grup+proba practica 3 probleme (70%)
+
+-la testul practic avem voie cu cartile lui baranga si laboratoarele de pe grup
+
+
+gcc program1.c
+./a.out   (assembly output)
+
+gcc -o nume program1.c
+./nume
+
+int main(int argc, char* argv[])
+	argv-matrice cu argumente
+	argv[0]- numele programului a . o u i \0
+	argv[1] p a r a m \0
+	argc- dimensiunea sirului argv (fara param in main=> argc=1; intotdeauna argv[0]=nume)
+
+int main(int argc, char* argv[])
+{
+	int i;
+	for(i=0;i<argc;i++)
+		puts(argv[i]);
+	return 0;
+}
+
+gcc -o nume program1.c
+./nume param1 param2
+
+
+Orice fisier are 3 streamuri implicite: stdin, stdout, stderr
+
+stdin-> scanf()
+stdout-> printf(), puts()
+stderr-> perror("string"); -> afiseaza string: mesaj de eroare
+
+-in linux fisierele nu au extensie-> file fisier      
+	regular files(text, pdf, executabil etc)
+	pipe files
+	director
+	socket
+	bloc
+	caracter
+
+descriptor de fisier-> valoare intreaga alocata programului de un sist de operare prin care
+face referire la o resursa
+0-stdin 1-stdout 2-stderr
+
+open(), read(), write(), close()
+
+ls -l nume_fis
+ls -al //listare tuturor fisierelor, si ascunse
+-rw-r-x-wx nume nume1 122 oct 
+nume-> nume proprietar
+nume1-> nume grup proprietar 
+
+chmod 
+chown-> schimba proprietarul unui fisier
+
+open(nume_fisier, mod de deschidere) -> intoarce valoare de descriptor sau -1
+mod-> O_RDONLY, O_RDWR, O_CREAT 
+
+
+S_IRUSR|S_IWUSR-> Obligatorii pt O_CREAT
+read(descriptor, zona de memorie, nr de octeti)
+write(descriptor, zona de memorie, nr de octeti)-> intoarce nr de octeti scrisi
+
+//copierea unui fisier in altul primit ca argument
+#include<stdio.h>
+#include<sys/types.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+
+int main(int argc, char* argv[])
+{
+	if(argc!=3) 
+	{
+		perror("Numar invalid de argumente");
+		return -1;
+	}
+	int descriptorCitire=open(argv[1],O_RDONLY);
+	if(descriptorCitire<0)
+	{
+		perror("nu s-a deschis fisierul");
+		return -1;
+	}
+	int descriptorScriere=open(argv[2], O_WRONLY|O_CREAT,S_IRUSR|S_IWUSR);
+	if(descriptorScriere<0)
+	{
+		perror("nu s-a deschis fisierul");
+		return -1;
+	}
+	char buffer[100];
+	int nr_de_octeti_cititi=read(descriptorCitire, buffer, 100);
+	while(nr_de_octeti_cititi>0) //inca mai avem octeti necititi in fisier
+	{
+		write(descriptorScriere, buffer, nr_de_octeti_cititi);
+		nr_de_octeti_cititi=read(descriptorCitire, buffer, 100);
+	}
+	close(descriptorCitire);
+	close(descriptorScriere);
+	return 0;
+}
