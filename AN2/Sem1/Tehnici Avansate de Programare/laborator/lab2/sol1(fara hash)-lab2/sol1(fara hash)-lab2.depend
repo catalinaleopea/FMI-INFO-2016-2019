@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1507706043 source:c:\users\catalina\desktop\sol1(fara hash)-lab2\main.cpp
+	<iostream>
+	<fstream>
+	<vector>
+	<algorithm>
+
