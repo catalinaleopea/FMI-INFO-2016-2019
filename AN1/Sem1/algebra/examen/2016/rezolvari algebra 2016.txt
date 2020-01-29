@@ -1,0 +1,11 @@
+La 1:
+Folosesti algoritmul lui Euclid extins si scrii relatia :
+139x + 2016y = 2015 (mod 2016). Il poti gasi pe infoarena.ro. O alta varianta ar fi sa iei la rand numerele impare de la 1 la 2015 care sunt vreo 1008, deci daca stai vreo 3 secunde per operatie scoti solutia in o ora bruteforce :).
+
+La 3:
+Poti folosi exponentiere rapida si pastrezi doar ultimele 2 cifre (calculezi 2^1,2^2,2^4...2^1024 prin ridicari la patrat si inmultesti doar daca 2016 are puterea aia de 2 in scrierea sa), sau, exponentiezi normal cu ultimele 2 cifre si deoarece ultima cifra poate fi doar 2,4,6,8, dupa vreo 40 de perechi posibile de ultime 2 cifre o sa cicleze si faci modulo.
+
+La 2:
+Scazi linia 2 din liniile 3->10. Apoi vei avea 10 pe prima coloana de la liniile 3-.10 iar pe "diagonala" vei avea multi de 2. Apoi iei fiecare coloana ce contine un 2, o inmultesti cu 5 si o scazi din prima => pe prima coloana de la liniile 2 la 10 o sa ai doar 0. Acum, determinantul tau este 0. Daca alegi sa dezvolti dupa primele 2 linii, oricum ai alege 2 coloane, in matricea complementara o sa ai cel putin o linie plina de 0-uri, deci determinantul e 0.
+
+i la 4, de fapt am gasit solutia intr-un paper. Desi e posibil sa iasa mai usor :)). http://www.sci-int.com/.../1720262505565-566--HABIB..
