@@ -1,0 +1,79 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Login {
+    public static void main(String[] args) {
+        JFrame jFrame = new JFrame("Frame Smecher");
+        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jFrame.setLocationRelativeTo(null);
+
+
+        CardLayout cardLayout = new CardLayout();
+        JPanel cards = new JPanel(cardLayout);
+        JPanel loginPanel = new JPanel();
+        cards.add(loginPanel, "login");
+
+        loginPanel.setLayout(new GridBagLayout());
+        GridBagConstraints gridBagConstraints = new GridBagConstraints();
+gridBagConstraints.insets = new Insets(5,5,5,5);
+
+        JLabel usernameLAbel = new JLabel("Username: ");
+        gridBagConstraints.gridx=0;
+        gridBagConstraints.gridy=0;
+        loginPanel.add(usernameLAbel, gridBagConstraints);
+
+        JTextField jTextField = new JTextField(20);
+        gridBagConstraints.gridx=1;
+        gridBagConstraints.gridy=0;
+        loginPanel.add(jTextField, gridBagConstraints);
+
+
+        JLabel paswdLAbel = new JLabel("Password: ");
+        gridBagConstraints.gridx=0;
+        gridBagConstraints.gridy=1;
+        loginPanel.add(paswdLAbel, gridBagConstraints);
+
+        JTextField pasdField = new JTextField(20);
+        gridBagConstraints.gridx=1;
+        gridBagConstraints.gridy=1;
+        loginPanel.add(pasdField, gridBagConstraints);
+
+        JButton loginBtn = new JButton("Login");
+        loginBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(jFrame,
+                        "Eggs are not supposed to be green.",
+                        "Inane warning",
+                        JOptionPane.WARNING_MESSAGE);
+
+               cardLayout.show(cards, "after");
+            }
+        });
+
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = GridBagConstraints.CENTER;
+        loginPanel.add(loginBtn, gridBagConstraints);
+
+        jFrame.add(cards);
+        cards.add(createAfterLoginPAne(), "after");
+
+
+
+
+        cardLayout.show(cards, "login");
+        jFrame.pack();
+        jFrame.setVisible(true);
+    }
+
+    private static JPanel createAfterLoginPAne(){
+        JPanel jPanel = new JPanel();
+        jPanel.setLayout(new BorderLayout());
+        jPanel.add(new JLabel("sandibel"));
+        return jPanel;
+    }
+}
