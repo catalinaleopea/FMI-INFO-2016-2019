@@ -1,0 +1,42 @@
+x=c("ionel","maria","gigel","vasile")
+m=10000
+y=f(x,m)
+table(y)
+rez=table(y)/m
+
+#if(TRUE)
+#  stop("eroare")
+
+f=function(x,m){
+  u=runif(m)
+  k=x[1+floor(length(x)*u)]
+  return(x[k])
+}
+
+#  x=x[! x%in% k]
+#  x=x[-k]
+
+f2=function(x,m){
+  v=rep(1,m)
+  for(i in 1:m){
+    u=runif(1)
+    k=ceil(length(x)*u)
+    v[i]=x[k]
+    x=x[-k]
+  }
+}
+
+x=1:20
+m=10
+p=c(0.8,0.1,0.1)
+k=rep(x,m)
+f3=function(x,m,p){
+  if(sum(p)!=1||length(p)!=length(x)||sum(p>0)!=length(x))
+      stop("nu e bine")
+  a=cumsum(p)
+  for(i in 1:m){
+    u=runif(m)
+    k[i]=min(which(u<=s))
+  }
+  return(x[k])
+}

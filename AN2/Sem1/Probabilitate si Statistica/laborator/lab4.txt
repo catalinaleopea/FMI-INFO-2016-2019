@@ -1,0 +1,38 @@
+1)plot(1:10,1:10)
+x=seq(-5*pi,5*pi,0.01)
+y=x+sin(x^2)
+plot(x,y)
+plot(x,y,"l")
+plot(x,y,"h")
+
+2)u=seq(-pi,pi,0.01)
+v1=sin(u^2)
+v2=cos(u^2)
+plot(u,v1,type="l",col="orange",main="sin si cos",lwd=2)
+lines(u,v2,col="purple",lwd=2)
+legend(-2,-0.5,legend=c("sin(u^2)","cos(u^2)"),fill=c("orange","purple"),lty=c(1,2))
+
+3)a=seq(-pi/2,pi/2,0.01)
+b=a*sin(1/a)
+c=a*cos(1/(a^2))
+d=(2^(sin(1/a)))*tan(a^2)
+plot(a,b,type="l",col="orange",main="sin, cos si tan",lwd=2,ylim=c(-4,4))
+lines(a,c,col="purple",lwd=2)
+lines(a,d,col="blue",lwd=2)
+legend(-2,-0.5,legend=c("sin(a^2)","cos(a^2)","tan(a^2)"),
+       fill=c("orange","purple","blue"),lty=c(1,2,3))
+
+4)f=function(x)
+{
+  return(ifelse(x>0,x^2,sqrt(abs(x))))
+}
+curve(expr=f,from=-1,to=1,col="blue",lwd=2)
+
+
+5)t=seq(0,2*pi,0.01)
+x=16*((sin(t))^3)
+y=13*cos(t)-5*cos(2*t)-2*cos(3*t)-cos(4*t)
+plot(t,x,type="l",col="orange",main="problema",lwd=2)
+lines(t,y,col="purple",lwd=2)
+#legend(-2,-0.5,legend=c("x","y"),       fill=c("orange","purple"),lty=c(1,2))
+#asta ar trebui sa arate ca o inima

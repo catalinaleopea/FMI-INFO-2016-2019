@@ -1,0 +1,31 @@
+probl1
+
+convorbiri=c(124, 103, 125, 128, 126, 116, 111, 113, 116, 119, 119, 130, 128, 126, 130, 128, 120, 98, 125, 131, 112, 114, 117, 118, 124, 119, 104, 130)
+zile=c("duminica","luni","marti","miercuri","joi","vineri","sambata")
+maximul=max(convorbiri)
+indexmax=match(maximul,convorbiri)
+ziuamax=indexmax %% 7
+saptmax=ceiling(indexmax/7)
+paste("In ziua ",zile[ziuamax]," din saptamana ",saptmax," am vorbit cel mai mult la telefon si anume ",maximul," minute.")
+
+
+matrice
+
+v=1:12
+m=matrix(v,3,4)
+m2=matrix(v,3,4,byrow=TRUE)
+m3=m*m2
+m4=m%*%t(m2)
+m5=m^m2
+
+
+liste
+l=list(1,1:10,matrix(1:20,5))
+str(l)
+class(l)
+v=c(1,2,3)
+class(v)
+class(l[[1]])
+l[[3]][2,4]
+rm(v)
+l[2]=NULL
