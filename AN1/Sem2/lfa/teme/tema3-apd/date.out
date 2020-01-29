@@ -1,0 +1,11 @@
+APD-ul este:
+Nodul 1 are vecinii: 2 a,A/AA 2 a,Z/AZ 3 b,A/BBBA 
+Nodul 2 are vecinii: 1 a,A/A 
+Nodul 3 are vecinii: 3 b,A/BBBB 4 c,B/l 
+Nodul 4 are vecinii: 4 d,A/l 4 c,B/l 5 l,Z/l 
+Nodul 5 are vecinii: 
+
+Starea initiala este: 1
+Starile finale sunt: 5 
+
+Cuvantul este acceptat

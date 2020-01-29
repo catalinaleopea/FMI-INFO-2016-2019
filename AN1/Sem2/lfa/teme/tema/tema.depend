@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1496089082 source:i:\fmi-an1-sem2\limbaje formale si automate\tema\main.cpp
+	<iostream>
+	<vector>
+	<set>
+	<fstream>
+
