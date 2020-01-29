@@ -1,0 +1,311 @@
+GENERATE
+ creeaza tranzactii care vor parcurge modelul;
+ are forma generala:
+GENERATE A,B,C,D,E
+unde
+ A reprezinta timpul mediu intre generari. Daca operandul B nu exista, atunci
+generarile se vor face la intervale constante de timp, egale cu A;
+ B poate fi un numar sau un nume de repartitie statistica. Daca este un numar, atunci
+generarile se vor face dupa o repartitie unuiforma pe intervalul [A-B,A+B]. Adica
+timpul intre generari poate lua orice valoare intreaga din acest interval. Toate
+valorile intregi au aceeasi probabilitate de a fi alese. Daca B este un nume de
+repartitie statistica, atunci timpii intre generari vor fi valori ale averiabilei aleatoare
+cu repartitia B si media A.
+ C este lungimea intervalului de timp cu care generarea tranzactiilor poate intarzia;
+ D este limita de generare, numarul maxim de tranzactii care pot fi generate;
+ E este prioritatea pe care o vor avea tranzactiile generate.
+-------------------------------------------------------------------------------------------------
+QUEUE si DEPART
+ sunt doua blocuri care nu pot exista unul fara celalalt intr-un model de simulare. Ele nu sunt
+elemente ale modelului, ci aduna informatii despre asteptarea clientilor, adica informatii
+despre cozile care eventual se formeaza.
+ QUEUE inregistreaza momentul la care un client intra in coada si DEPART momentul la
+care un client iese din coada.
+ forma lor generala este
+QUEUE A,B
+DEPART A,B
+unde
+ A este numele cozii pentru care sunt adunate informatii;
+ B este numarul de tranzactii care sunt inregistrate pentru intrarea/iesirea din coada.
+Daca lipseste este 1.
+-------------------------------------------------------------------------------------------------
+SEIZE si RELEASE
+ sunt doua blocuri care nu pot exista unul fara celalalt intr-un model de simulare. Ele
+simuleaza intrarea unui client (tranzactie) la un serviciu (facilitate), respectiv iesirea unui
+client de la un serviciu (facilitate).
+ forma lor generala este
+SEIZE A
+RELEASE A
+unde A este numele sau numarul facilitatii.
+ADVANCE
+ este un bloc care simuleaza oprirea tranzactiilor in sistem pentru un anumit interval de timp.
+Oprirea poate fi determinata de diverse cauze. De exemplu aici oprirea tranzactiilor se face
+pentru simularea primirii unui serviciu.
+ forma generala este
+-------------------------------------------------------------------------------------------------
+ADVANCE A,B
+unde A si B au aceeasi semnificatie pe care o au operanzii A si B de la blocul GENERATE.
+-------------------------------------------------------------------------------------------------
+TERMINATE
+ este un bloc care simuleaza iesierea clientilor din sistem, distrugand tranzactiile create de
+GENERATE.
+ forma generala este
+TERMINATE A
+unde A reprezinta numarul care se scade din numarul total de tranzactii pentru care se
+ruleaza modelul.
+ fiecarui bloc GENERATE trebuie sa-i corespunda un bloc TERMINATE.
+ in orice model trebuie sa existe un bloc TERMINATE cu operandul A diferit de 0, pentru ca
+in acest mod se controleaza timpul de rulare. Rularea unui program in GPSS se face prin
+trecerea unui anumit numar de tranzactii prin sistemul modelat.
+-------------------------------------------------------------------------------------------------
+STORAGE – instrucţiune care defineşte o entitate de depozitare sau un punct de servire cu mai
+multe unităţi de servire în paralel. Forma generală este:
+Etichetă STORAGE A
+Unde:
+ Etichetă este numele entităţii STORAGE şi este un element obligatoriu;
+ A este capacitatea entităţii STORAGE şi este obligatorie;
+-------------------------------------------------------------------------------------------------
+GATE – este o instrucţiune care deviază fluxul tranzacţiilor în funcţie de starea unei entităţi. Are
+forma generală:
+Etichetă GATE O A,B
+Unde:
+ Etichetă este un element opţional;
+ O este un operator condiţional şi este obligatoriu. Valorile lui pot fi:
+	 FNV – pentru un test cu succes facilitatea specificată de operandul A trebuie să nu
+	fie disponibilă;
+	 FV – pentru un test cu succes facilitatea specificată de operandul A trebuie să fie
+	disponibilă;
+	 SE – pentru un test cu succes entitatea storage specificată de operandul A trebuie să
+	fie goală;
+	 SF – pentru un test cu succes entitatea storage specificată de operandul A trebuie să
+	fie plină;
+	 SNE – pentru un test cu succes entitatea storage specificată de operandul A trebuie
+	să nu fie goală;
+	 SNF – pentru un test cu succes entitatea storage specificată de operandul A trebuie să
+	nu fie plină;
+	 SNV – pentru un test cu succes entitatea storage specificată de operandul A trebuie
+	să nu fie disponibilă;
+	 SV – pentru un test cu succes entitatea storage specificată de operandul A trebuie să
+	fie disponibilă.
+ A este numele sau numărul entităţii care va fi testată şi este obligatoriu;
+ B este numărul blocului destinaţie în cazul în care testul nu are succes. Este opţional.
+-------------------------------------------------------------------------------------------------
+TABLE – este o instrucţiune care iniţializează o histograma. Forma generală este:
+Etichetă TABLE A,B,C,D
+Unde:
+ Etichetă este numele histogramei şi este un element obligatoriu;
+ A este argumentul histogramei, elementul care furnizează datele pentru distribuţia de
+frecvenţă. Este obligatoriu;
+ B este limita superioară a primei clase de frecvenţă. Este obligatoriu;
+ C este lungimea unei clase de frecvenţă. Este obligatoriu;
+ D este numărul claselor de frecvenţă. Este obligatoriu.
+-------------------------------------------------------------------------------------------------
+ENTER – este blocul care simulează intrarea unei tranzacţii intr-o entitate STORAGE. Forma
+generală este:
+Etichetă ENTER A,B
+Unde:
+ Etichetă este un element opţional;
+ A este numele sau numărul entităţii STORAGE şi este obligatoriu;
+ B este numărul de unităţi cu care descreşte capacitatea disponibilă a entităţii STORAGE şi
+este opţional. Daca B nu exista este considerat a fi 1.
+-------------------------------------------------------------------------------------------------
+LEAVE – este blocul prin care se simulează eliberarea entităţii STORAGE de către un anumit
+număr de tranzacţii. Forma generală este:
+Etichetă LEAVE A,B
+2
+Unde:
+ Etichetă este un element opţional;
+ A este numele sau numărul entităţii STORAGE şi este obligatoriu;
+ B este numărul de unităţi eliberate din entitatea STORAGE. Este opţional si daca nu exista
+este considerat a fi 1.
+-------------------------------------------------------------------------------------------------
+TABULATE – determină crearea unei histograme. Forma generală este:
+ Etichetă este un element opţional;
+ A este numele sau eticheta histogramei şi este obligatoriu;
+ B este factorul de pondere şi este opţional.
+-------------------------------------------------------------------------------------------------
+TRANSFER – este blocul care determină saltul unei tranzacţii la un alt bloc. Forma generală este:
+Etichetă TRANSFER A,B,C,D
+Unde:
+ Etichetă este un element opţional;
+ A este modul de transferare şi este opţional. Dacă lipseşte, transferul se face necondiţionat;
+ B, C, D sunt etichetă sau număr de bloc şi sunt opţionale;
+-------------------------------------------------------------------------------------------------
+NUMERE RANDOM
+Această variabilă va fi egală cu expresia RN1@24+40. Unde RN1 este generatorul de numere aleatoare cu
+numărul 1 şi generează numere întregi cuprinse între 0 şi 999. Prin operaţia
+RN1@24 se generează numere întregi între 0 şi 23.
+Exemplu: nume_var VARIABLE RN1@24+40
+-------------------------------------------------------------------------------------------------
+VARIABLE – Este o comandă care defineşte o entitate reprezentând o variabilă. Forma generală
+este:
+nume VARIABLE X
+Unde:
+ nume – este o etichetă obligatorie care reprezintă numele variabilei.
+ X – este o expresie obligatorie.
+-------------------------------------------------------------------------------------------------
+EQU – Este o comandă care evaluează o expresie. Forma generală este:
+nume EQU X
+Unde:
+ nume – este o etichetă obligatorie reprezentând numele entităţii ce va lua valoarea expresiei
+X.
+-------------------------------------------------------------------------------------------------
+TEST – Este o instrucţiune bloc care compară valori (de obicei SNA-uri) şi controlează destinaţia
+tranzacţiei active pe baza rezultatului comparaţiei.
+Forma generală este:
+TEST O A,B,C
+Unde:
+ O – este un operator relaţional obligatoriu . Pentru un test cu succes, trebuie să se verifice
+relaţia A O B. Operatorul O poate să ia valorile: E, G, GE, L, LE, sau NE. Dacă este:
+	 E – pentru un test cu succes, trebuie ca A=B.
+	 G - pentru un test cu succes, trebuie ca A>B.
+	 GE - pentru un test cu succes, trebuie ca AB.
+	 L - pentru un test cu succes, trebuie ca AB.
+	 LE - pentru un test cu succes, trebuie ca AB.
+	 NE - pentru un test cu succes, trebuie ca AB.
+ A – Reprezintă valoarea testată şi este obligatoriu. Poate să fie nume, număr, string, expresie
+cu paranteze, SNA sau parametru SNA.
+ B – Reprezintă valoarea de referinţă şi este obligatoriu. Poate să fie nume, număr, string,
+expresie cu paranteze, SNA sau parametru SNA.
+ C – Reprezintă eticheta blocului de destinaţie şi este opţional.
+Un bloc TEST lucrează fie în modul “refuz” fie în modul “variante alternative”. În ambele cazuri
+sunt evaluaţi şi comparaţi operanzii A şi B.
+Dacă operandul C nu este folosit, blocul TEST lucrează în modul “refuz”. Când o tranzacţie încercă
+să intre într-un astfel de bloc, şi testul nu are succes, atunci tranzacţia este blocată, adică nu i se
+permite să intre în blocul TEST până când testul se repetă şi are succes. Când testul are succes,
+tranzacţia activă intră în blocul TEST parcurgând apoi secvenţial blocurile modelului.
+Dacă operandul C este folosit, blocul TEST lucrează în modul “variante alternative”. Când o
+tranzacţie încearcă să intre într-un astfel de bloc TEST, iar testul este fără succes, ea este trimisă la
+blocul cu eticheta C. Dacă testul are succes, tranzacţia parcurge în mod secvenţial blocurile din
+model care urmează blocului TEST.
+-------------------------------------------------------------------------------------------------
+ASSIGN – Este o instrucţiune bloc folosită pentru a atribui sau a modifica valoarea unui parametru
+al tranzacţiei. Forma generală este:
+ASSIGN A,B,C
+Unde:
+ A – este numărul parametrului tranzacţiei active. Este obligatoriu şi poate fi un nume, un
+întreg pozitiv, o expresie cu paranteze, SNA, sau parametru SNA, câteodată fiind urmat de +
+sau -.
+ B – este o valoare obligatorie care poate fi nume, număr, string, expresie cu paranteze, SNA
+sau parametru SNA.
+ C – este un număr de funcţie şi este opţional. Poate fi nume, întreg pozitiv, expresie cu
+paranteze, SNA sau parametru SNA.
+Exemple:
+ASSIGN 2000,150.6
+Valoarea 150.6 este atribuită parametrului tranzacţiei active, care are numărul 2000. Dacă nu există
+un astfel de parametru, atunci este creat.
+ASSIGN TEXT,”kmlm.,m.,lafdsaf”
+Parametrului tranzacţiei active cu numele TEXT îi este atribuit stringul scris între ghilimele. Dacă
+nu există un astfel de parametru, el este creat.
+ASSIGN 2000+,3
+În acest exemplu, semnul + care urmează operandul A indică faptul că valoarea operandului B se
+adaugă valorii parametrului 2000 al tranzacţiei active. Dacă un astfel de parametru nu există, atunci
+este creat şi iniţializat cu 0 înainte de adunare.
+ASSIGN 2000-,3
+În acest exemplu, semnul - care urmează operandul A indică faptul că valoarea operandului B se
+scade din valoarea parametrului 2000 al tranzacţiei active. Dacă un astfel de parametru nu există,
+atunci este creat şi iniţializat cu 0 înainte de scădere.
+-------------------------------------------------------------------------------------------------
+QTABLE este o comandă care precizează elementele definitorii ale unei histograme asociate
+timpilor de asteptare la un serviciu. Forma ei generală este:
+Etichetă QTABLE A,B,C,D
+Unde:
+• Etichetă este un element obligatoriu si reprezintă numele histogramei.
+• A este un element obligatoriu si reprezintă numele entitătii QUEUE pentru care se
+construieste histograma.
+• B este prima valoare de la care încep să fie reprezentate intervalele de frecventă.
+• C este mărimea unei clase de frecventă.
+• D este numărul claselor de frecventă.
+Valori sugerate în cazul problemei de fată pentru operanzii B, C si D: 10,10, 20.
+Comanda QTABLE, spre deosebire de comanda TABLE, nu are asociat un bloc TABULATE
+pentru că datele necesare construirii histogramelor sunt înregistrate automat atunci când tranzactiile
+trec prin blocurile QUEUE si DEPART.
+-------------------------------------------------------------------------------------------------
+PREEMPT simulează intrarea unei tranzactii la un serviciu cu un singur punct de servire
+după ce, în prealabil a fost îndepărtată tranzactia care eventual ocupa acel serviciu.Forma generală a
+blocului PEEMPT este:
+PREEMPT A,B,C,D,E
+Unde:
+• A este un operand obligatoriu si reprezintă numele facilitătii a cărei ocupare de simulează.
+• B este un operand care semnifică modul în care este îndepărtată tranzactia care ocupa initial
+facilitatea. Poate fi PR sau poate să lipsească. Dacă este PR atunci îndepărtarea se face în
+functie de prioritate, indiferent dacă tranzactia care ocupă initial facilitatea a intrat la
+serviciu prin SEIZE sau prin PREEMPT. Dacă lipseste si dacă facilitatea este ocupată de o
+tranzactie prin PREEMPT, atunci tranzactia activă care a ajuns la facilitate asteaptă
+eliberarea acesteia.
+• C este optional si reprezintă blocul la care este trimisă tranzactia care ocupa initial
+facilitatea. Dacă lipseste, atunci tranzactia poate să rămână în asteptare si să se întoarcă la
+facilitate atunci când aceasta se eliberează din nou.
+• D este optional si reprezintă numărul unui parametru asociat tranzactiei care ocupa initial
+facilitatea. În acest parametru este memorat timpul rezidual, dacă tranzactia respectivă este
+înlăturată din agenda evenimentelor viitoare.
+• E este un operand optional în functie de care tranzactia înlăturată de la facilitate se mai poate
+întoarce la aceasta sau nu. Dacă operandul E este RE atunci tranzactia nu se mai poate
+întoarce la facilitatea de la care a fost înlăturată. În acest caz este obligatorie existenta
+operandului C.
+În problema de fată se va folosi blocul PREEMPT cu doi operanzi.
+-------------------------------------------------------------------------------------------------
+RETURN
+Blocul de eliberare a unei facilităti detinute de o tranzactie prin PREEMPT este RETURN. Forma
+generală a lui RETURN este:
+RETURN A
+Unde A este numele facilitătii eliberate.
+Pentru a vizualiza procentul de folosire a facilitătii parcurgeti pasii următori: Command/ Show. În
+“dialog box” scrieti “FR$Numele_facilitătii” si selctati “OK”.
+-------------------------------------------------------------------------------------------------
+Pentru generarea tranzactiilor la intervale de timp cu o anumită repartitie statistică se foloseste o
+forma specială a blocului GENERATE. De exemplu, pentru a genera valori ale variabilei
+exponentiale se poate folosi:
+GENERATE (Exponential(1,0,150))
+unde Exponential este numele repartitiei. Primul parametru (aici egal cu 1) este numărul
+generatorului de numere aleatoare care este folosit pentru generarea variabilei exponentiale, 0 este
+parametrul de locatie al variabilei exponentiale, iar 150 este parametrul de scală al variabilei
+exponentiale, care în acest caz coincide si cu media variabilei.
+În cazul generării unei variabile normale, numele repartitiei in GPSS este Normal, primul
+parametru este numărul generatorului de numere aleatoare care este folosit pentru generarea
+variabilei normale, al doilea parametru este media variabilei normale, iar al treilea parametru, este
+deviatia standard a variabilei normale.
+-------------------------------------------------------------------------------------------------
+FUNCTION împreună cu lista de perechi care o urmează definiesc o entitate funcţie în
+GPSS. O entitate funcţie are foma generală:
+nume_funcţie FUNCTION A,B
+x1,y1/x2,y2/…/xnyn
+unde
+ A este un element obligatoriu şi reprezintă argumentul funcţiei. În cazul acestei probleme va
+fi generatorul cu numărul 1, de numere aleatoare uniforme: RN1.
+ B este un element obligatoriu şi este format dintr-o literă (care poate fi D sau C) şi un
+număr. Litera reprezintă tipul funcţiei (discretă sau continuă) iar numărul (=n) este dat de
+câte perechi definesc funcţia.
+ Perechile xi,yi sunt formate din
+o xi=frecvenţa cumulată (obţinută prin adunarea frecvenţelor: f1+f2+…+fi);
+o yi=valoarea care are asociată frecvenţa cumulată xi;
+Atunci când trebuie generate tranzacţii cu timpii între generări având o anumită distribuţie, se pot
+folosi funcţiile deja implementate în biblioteca limbajului GPSS. Forma generală a apelării acestor
+funcţii este:
+Nume_distribuţie(operand1, operand2,operand3)
+Unde toţi operanzii sunt obligatorii şi au următoarele semnificaţii:
+ Operand1=numărul generatorului de numere aleatoare folosit;
+ Operand2=parametrul de locaţie al distrbuţiei (nu are nici o legătură cu parametrii
+tranzacţiilor, este o caracteristică a distribuţiei statistice).
+ Operand3=parametrul de scală al distrubuţiei (nu are nici o legătură cu parametrii
+tranzacţiilor este o caracteristică a distribuţiei statistice).
+Forma blocului GENERATE, atunci când se foloseşte o distribuţie predefinită este:
+GENERATE (Nume_distribuţie(operand1, operand2,operand3))
+-------------------------------------------------------------------------------------------------
+O entitate SAVEVALUE este o variabilă care poate lua orice valori. O „savevalue” poate fi modificată
+de blocuri. Modul de apelare a unei „savevalue” este Xn unde n este numărul asociat entităţii
+„savevalue”.
+Blocul SAVEVALUE este folosit pentru a atribui, a incrementa sau a decrementa o valoare
+memorată într-o entitate „savevalue”. Forma generală a blocului SAVEVALUE este:
+SAVEVALUE A,B
+Unde
+ A este numărul entităţii „savevalue”. A poate fi urmat de + sau – indicând astfel
+adunarea sau scăderea unui anumit număr la sau din valorea memorată într-o entitate
+„savevalue”.
+ B este valoarea memorată,/adunată/scăzută într-o/la/dintr-o entitate „savevalue”.
+
+Initializare variabila folosita cu SAVEVALUE
+In partea de program unde sunt scrise definiţiile, se iniţializează şi entităţile SAVEVALUE
+cu ajutorul instrucţiunii INITIAL. Forma generală a acestei instrucţiuni este
+INITIAL X$nume sau Xnumar,valoare
+Dupa, folosim SAVEVALUE nume...
