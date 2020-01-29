@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1479224977 source:c:\users\catalina\desktop\pp\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

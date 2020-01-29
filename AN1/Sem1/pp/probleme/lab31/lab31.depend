@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1476806033 source:c:\users\catalina&andrei\desktop\info\lab31\main.c
+	<stdio.h>
+	<stdlib.h>
+	"cod.h"
+
+1476805434 c:\users\catalina&andrei\desktop\info\lab31\cod.h
+

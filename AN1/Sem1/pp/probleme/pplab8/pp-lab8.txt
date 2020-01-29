@@ -1,0 +1,19 @@
+struct elev             	int v[100];
+{char nume[30],prenume[30];	nume
+long long CNP;			prenume
+char prnm[30],prnt[30];		CNP
+}				prenume mama
+				prenume tata
+
+//in loc sa le vedem ca vectori de 100 elemente le vedem ca un vector care are in v[0] fiecare tip de date.
+
+int main()
+{int n,v[100];//n elevi
+scanf("%d",&n);
+struct elev *p=(struct dim*)malloc(n*sizeof(struct elev));
+//cu pointeri
+//calloc initializeaza cu 0
+//p e adresa primului element
+
+int *p;
+p+1 //valoarea aflata la adresa p+sizeof(p);
