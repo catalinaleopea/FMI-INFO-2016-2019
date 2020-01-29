@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1486239567 source:g:\fmi-an1-sem1\prog proced\examen\subiectul1examen\main.c
+	<stdio.h>
+	<stdlib.h>
+
