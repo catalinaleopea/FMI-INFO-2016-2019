@@ -1,0 +1,5 @@
+
+1)Numai cuvintele, cu litere mici, separate printr-un singur spatiu.
+ fisier este o colectie de date memorate pe un suport extern si care este identificata printrun nume sunt entitati ale sistemului de operare si ca atare ele au nume care respecta conventiile sistemului fara legatura cu un anume limbaj de programare cu fisiere sunt realizate de catre sistemul de operare iar compilatorul unui limbaj traduce functiile de acces la fisiere in apeluri ale functiilor de sistem fisier text tipul de date este considerat explicit ca fiind textul neformatat unui astfel defisier este pe randuri care se genereaza la apasarea tastei fiecare rand de text fiind delimitat deunul sau mai multe caractere de sfarsit de rand caractere 
+2)Numai numerele.
+0123456789

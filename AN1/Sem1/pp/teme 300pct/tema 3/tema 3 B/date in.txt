@@ -1,0 +1,8 @@
+Un fisier         este o colectie      de date memorate pe un suport extern si care este identificata printr-un nume.
+0 1 2 3 4 5 6 7 8 9
+Fisierele     sunt entitati ale sistemului de operare si ca atare ele au nume care respecta conventiile sistemului ,
+fara legatura cu un anume limbaj de programare. Operatiile cu operare sunt realizate de catre sistemul de fisiere ,
+iar compilatorul unui limbaj traduce functiile de acces la fisiere in apeluri ale functiilor de sistem.
+Intr-un fisier text, tipul de date este considerat explicit ca fiind textul neformatat. Organizarea unui astfel de
+fisier este pe randuri (care se genereaza la apasarea tastei Enter/Return), fiecare rand de text fiind delimitat de
+unul sau mai multe caractere de sfarsit de rand (caractere EOL).

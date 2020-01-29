@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1483476242 source:g:\informatica dell\prog proced\teme\tema 3\tema 3 b\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1483477564 source:c:\users\andrey\desktop\tema 3\tema 3 b\3b.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1484663329 source:d:\informatica dell\prog proced\teme\tema 3\tema 3 b\3b.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
