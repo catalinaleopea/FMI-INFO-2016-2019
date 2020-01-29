@@ -1,0 +1,37 @@
+--creez un tabel;varchar e string;number e int
+create table EXEMPLU_lc(id_exemplu number(5)not null primary key,
+                        nume varchar2(10)not null,
+                        prenume varchar2(10) not null);
+
+--describe
+desc exemplu_lc;
+
+--insereaza randuri in tabel
+insert into EXEMPLU_LC(id_exemplu,nume,prenume)VALUES(1,'pop','alex');
+insert into EXEMPLU_LC(id_exemplu,nume,prenume)VALUES(2,'pop','alex');
+insert into EXEMPLU_LC(id_exemplu,nume,prenume)VALUES(3,'pop','alex');
+
+--* tot
+select * from EXEMPLU_LC;
+
+--STERGE TABELUL
+drop table EXEMPLU_LC;
+--STERGE CONTINUTUL TABELULUI delete
+
+/*inmulteste cu 12 fiecare coloana din liniile de salariu 
+si ii pune numele noii coloane Salariul_Anual
+nu accepta blank,altfel punem numele in ghilimele
+*/
+SELECT employee_id,last_name,salary*12 Salariul_Anual
+FROM employees;
+--6)
+SELECT last_name|| ' , '|| job_id ||','||salary||','||email
+FROM employees; 
+--7)
+SELECT last_name,first_name,salary
+FROM employees
+WHERE salary > 2850;
+--8)
+SELECT last_name,first_name,department_id,employee_id
+FROM employees
+WHERE employee_id = 104;

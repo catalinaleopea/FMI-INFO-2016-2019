@@ -1,0 +1,85 @@
+--continuare lab 2
+--6
+select employee_id, last_name, round(salary*1.15,2) "Salariu nou", 
+        round(salary*1.15/100,2) "numar sute"
+from employees
+where mod(salary,1000) ^= 0;
+
+--7
+select last_name, RPAD(to_char(hire_date), 20, 'X')"Data angajarii"
+from employees
+where commission_pct is not null;
+
+--8
+SELECT TO_CHAR(SYSDATE+30, 'MONTH DD HH24:MM:SS') Data
+FROM DUAL;
+
+--9
+select round(to_date('31-12-2018','dd-mm-yyyy')- sysdate)
+from dual;
+
+--10
+SELECT TO_CHAR(SYSDATE+12/24, 'DD/MM HH24:MM:SS') Data
+FROM DUAL;
+
+--10 b
+SELECT TO_CHAR(SYSDATE+5/60/24, 'DD/MM HH24:MM:SS') Data
+FROM DUAL;
+
+--11
+SELECT concat(last_name, first_name), hire_date,
+NEXT_DAY(ADD_MONTHS(hire_date,6),'monday') Negociere
+FROM employees;
+
+--12
+select last_name,round(MONTHS_BETWEEN(SYSDATE, hire_date))"Luni lucrate"
+from employees,dual
+ORDER BY 2;
+--Sau ORDER BY MONTHS_BETWEEN(SYSDATE, hire_date);
+--Sau ORDER BY “Luni lucrate”;
+
+--13
+SELECT last_name, nvl(to_char(commission_pct), 'Fara comision')Comision
+FROM employees;
+
+--14
+SELECT last_name, salary, commission_pct
+FROM employees
+WHERE salary+salary*nvl(commission_pct,0)>10000;
+
+--15
+/*SELECT last_name, job_id, salary,
+DECODE(job_id,
+'IT_PROG', salary*1.1,
+
+salary) "Salariu renegociat"
+FROM employees;*/
+--lipsa
+--16-19
+
+--20
+SELECT ang.employee_id Ang#, ang.last_name Angajat, sef.last_name Manager
+FROM employees ang, employees sef
+WHERE ang.manager_id = sef.employee_id;
+
+--22
+select e.last_name, e.department_id, coleg.last_name
+from employees e,employees coleg
+where e.department_id = coleg.department_id
+      and e.employee_id != coleg.employee_id; --3192
+
+select e.last_name, e.department_id, coleg.last_name
+from employees e,employees coleg
+where e.department_id = coleg.department_id
+      and e.employee_id > coleg.employee_id; --1596
+
+--23
+select last_name, e.job_id, job_title, d.department_name, salary
+from employees e, jobs j, departments d
+where e.job_id = j.job_id 
+      and e.department_id = d.department_id;
+      
+--24
+select e.last_name, gates.last_name
+from employees e,employees gates
+WHERE INITCAP(gates.last_name)= 'Gates' AND e.hire_date > gates.hire_date;
