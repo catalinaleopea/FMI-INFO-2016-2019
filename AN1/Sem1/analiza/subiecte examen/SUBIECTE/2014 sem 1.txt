@@ -1,0 +1,18 @@
+la numarul 1, teorie: definitie serie convergenta, punct de acumulare (parca), multime complet ordonata
+iar la exercitii a dat: sa se studieze natura unei serii, sa se afle interiorul si aderenta unei multimi si sa se studieze continuitatea unei functii.
+numarul 2,teorie:sir cauchy,vecinatate,si inca ceva:,de demonstrat ca o functie continua este marginita si isi atinge marginile si la exercitii la fel
++ multime inductiva la teorie
++uniform continuitatea functiei la ultimul exercitiu f:R-> R f(x)=x*sin(1/x) daca x!=0 si f(x)=0 daca x=0
+teorie:def uniform continua,punct limita,corp ordonat,demonstratie ca daca (Ai)cu i in I familie de multimi inchise,sa rezulte ca Ai1 reunit cu Ai2 e inchisa si intersectia tuturor e inchisa(asta la numarul 2 care sta spre fereastra amfiteatrului.numarul 1 e celalalt)
+exercitii(tot numarul 2):natura serie cu parametru,analiza topologica la multime,si un exercitiu de clasa a 11a cu siruri din alea grele
+la nr 1 teorie: 1:relatie de ordin, limita inferioara, functie continua in spatii metrice(definitia cu vecinatati),2: daca v1,v2 apartin lui V, atunci si v1 intersectat cu v2 si v1 reunit cu v2 apartin lu V.la exercitii tot in genul.
+1.Studiati natura seriei: (1*4*7*... * (3n+1) * a^n) / (n+1)! 2.Faceti analiza topologica a multimii A= ([0,6) \ {3} ) U {7} 3.Nu imi aduc aminte :)) (la celalalt numar era asemanator)
+Convergenta sir Xn+1=ln(1+Xn) cu X0>0.
+Și convergență șir (n+1)*xn+1 - nxn <0
+seria la nr 1: (n!*a^(n-1))/(a+1)*...*(a+n-1) si topologia: A=(-4,2]reunit cu{-5,3}
+
+
+A stiut cineva sa faca convergenta pt xn+1=ln(1+xn),x0>0?Asta e tot enuntul?
+xn > 0 (pt ca ln(1+ceva) e mereu > 0) si xn < x0 pt ca este descrescator deci xn marg si monoton
+
+Ala e sirul, nu seria. Pentru serie trebuie sa arati ca xn->0, si dupa calculeala ca sa afli valoarea. Faptul ca seria e convergenta iese daca iei yn=1/n si zn=0 si faci cleste cu zn<xn<yn. (ori iei doar yn-ul, arati ca yn->0 si xn<yn si te folosesti de faptul ca xn>0). =>convergenta. Mai greu e de aflat la ce valoare converge (oare am zis bine?) LE: Vorbesc prostii, cerinta era pentru sir. Tot se aplica ca rezolvare, doar ca numai clestele ala ajunge.

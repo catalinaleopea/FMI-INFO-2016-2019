@@ -1,0 +1,25 @@
+examen 2014
+
+teorie:
+demonstratia de la "o functie continua pe o multime compacta este functie marginita si isi atinge marginile"
+definitia unei topologii
+
+exercitii:
+analiza de-aia topologica, pe jumate, adica doar doua dintre multimile alea (interior, aderenta, etc)
+si am avut o serie de numere reale
+si am avut un exercitiu cu functii uniform continue
+sa verifici daca e sau nu
+
+
+
+restanta 2014
+
+definitii:
+sir convergent
+acumulare
+doar enunt la o teorema
+
+exercitii:
+studiu de natura pt o serie (s-a facut la seminar 132)
+interior + aderenta la un pct
+lim sup + inf la o fctie
