@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+	function adaugaTextNode(caracter){
+		var p=document.getElementById("bd");
+		var tn=document.createTextNode(caracter);
+		p.appendChild(tn);
+	}
+	window.onkeypress=function(e) {
+		var cod_tasta=e.charCode?e.charCode:e.keyCode;
+		var caracter=String.fromCharCode(cod_tasta);
+		adaugaTextNode(caracter);
+	}
+	</script>
+</head>
+<body id="bd">
+</body>
+</html>

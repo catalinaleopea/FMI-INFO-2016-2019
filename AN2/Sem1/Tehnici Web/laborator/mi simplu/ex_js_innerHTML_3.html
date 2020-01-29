@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Un paragraf cu id</title>
+	<script type="text/javascript">
+	var vector = ["miau","chit","oac","cip","ham","Bun ziua, cumetre","bee"];
+	window.onload=function(){
+		var nr=Math.floor(Math.random() * 7);//genereaza nr intre 0 si 7
+		document.getElementById("p1").innerHTML = vector[nr] + "!";
+	}
+	</script>
+</head>
+<body>
+	<p id="p1">Un paragraf frumos.</p>
+</body>
+</html>

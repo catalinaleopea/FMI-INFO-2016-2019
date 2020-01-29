@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script type="text/javascript">
+
+
+function complex(a,b){
+//-----------secventa 1
+var afis_i="i";// proprietate privata
+this.a=a;//proprietate publica
+if(!b)//ca sa pemita apelarea cu un singur parametru
+this.b=0;
+else
+this.b=b;
+//functie declarata in constructor
+
+//-----------secventa 2
+this.inmultire=function(nr){//e metoda publica?
+var a1=this.a;
+var b1=this.b;
+this.a=a1*nr.a-b1*nr.b;
+this.b=a1*nr.b+b1*nr.a;
+}
+
+//-----------secventa 3
+this.get_afis= function (){
+return afis_i;
+}
+
+//-----------secventa 4
+function verif_afis(af){//metoda privata
+if(af=='i' || af=='j') return true;
+return false;
+}
+
+//-----------secventa 5
+this.set_afis= function (){
+if (verif_afis(arguments[0]))
+afis_i=arguments[0];
+else document.write("<p style='color:red'>Nu se poate seta decat la i sau j</p>");
+}
+
+//-----------secventa 6
+if ( typeof complex.nr == 'undefined' ) {//variabila statica
+complex.nr = 1;
+}
+else complex.nr++;
+
+}//!!!sfarsit de constructor----------
+
+
+
+//-----------secventa 7
+//functie declarata in afara constructorului
+complex.prototype.afisare=function (){
+document.write(this.a+"+"+this.b+"*"+this.get_afis());
+complex.prototype.nr_afis++;//e variabila statica?
+}
+
+//ce face randul de mai jos?
+complex.prototype.nr_afis=0;//variabila statica publica
+
+complex.prototype.afisare_numar_cr= function (){//metoda statica, de ce?
+document.write(complex.nr);
+}
+
+
+//-----------secventa 8
+var nr1=new complex(3);//apel cu un singur parametru; al doilea este nedefinit
+var nr2=new complex(2,3);
+var nr3=new complex(3,4);
+
+//-----------secventa 9
+document.write("-----------secventa 9---------<br/>");
+document.write("nr1=");
+nr1.afisare();
+document.write("<br/>");
+document.write("nr2=");
+nr2.afisare();
+document.write("<br/>");
+nr1.inmultire(nr2);
+document.write("nr1=");
+nr1.afisare();
+document.write("<br/>");
+
+//-----------secventa 10
+document.write("-----------secventa 10---------<br/>");
+document.write("Numar elemente create: ")
+complex.prototype.afisare_numar_cr();
+document.write("<br/>");
+document.write("Numar elemente create: ")
+nr1.afisare_numar_cr();
+
+//-----------secventa 11
+document.write("-----------secventa 11---------<br/>");
+//va merge?
+//document.write(nr1.nr);
+//document.write(nr1.afis_i)
+
+//-----------secventa 12
+document.write("-----------secventa 12---------<br/>");
+document.write("<br/>");
+nr1.set_afis("j");
+document.write("nr1=");
+nr1.afisare();
+document.write("<br/>");
+
+nr1.set_afis("a");
+
+document.write("nr1=");
+nr1.afisare();
+document.write("<br/>");
+
+document.write("Numar elemente afisate:");
+document.write(nr1.nr_afis);
+document.write("<br/>");
+document.write("Numar elemente afisate:");
+document.write(complex.prototype.nr_afis);
+document.write("<br/>");
+
+
+
+//-----------secventa 13
+//un obiect care nu are efectiv legatura cu complex
+function ceva_3d(a,b,c){ 
+this.a=a
+this.b=b
+this.c=c;
+}
+
+
+//-----------secventa 14
+document.write("-----------secventa 14---------<br/>");
+complex.prototype.scadere=function(nr){//metoda publica
+var a1=this.a;
+var b1=this.b;
+arez=a1-nr.a;
+brez=b1-nr.b;
+return (new complex(arez,brez))
+}
+
+
+
+document.write("Diferenta nr1-nr2=");
+(nr1.scadere(nr2)).afisare()
+document.write("<br/>");
+
+nr4=new ceva_3d(1,1,1);
+document.write("Diferenta nr1-nr4=...");
+(nr1.scadere(nr4)).afisare()
+document.write("<br/>");
+document.write("Diferenta nr4-nr1=...");
+//(nr4.scadere(nr1)).afisare()
+nr5=complex.prototype.scadere.call(nr4,nr1)
+document.write("<br/>");
+document.write("nr5=");
+nr5.afisare();
+
+
+
+//nr5=complex.prototype.inmultire.call(nr4,nr1)
+//ce se intampla la inmultire? ce fel de metoda este?
+//va merge?
+//complex.prototype.afisare.call(nr4);
+//care e problema la afisare? e un cod corect? cum putem rezolva?
+</script>
+
+</body>
+</html>

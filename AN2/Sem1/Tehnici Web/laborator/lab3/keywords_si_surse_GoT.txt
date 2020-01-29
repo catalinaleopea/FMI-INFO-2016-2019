@@ -1,0 +1,22 @@
+pag1 descriere:
+dragon,queen,war between families, dwarf,kingdom,sword,prince,murder,conflict,royalty,usurper,witchcraft,magic,bastard,vows,betrayal,gods,night watch,white walkers,ice and fire,dothraki,Unburnt, Queen of the Andals, the First Men, Queen of Meereen, Protector of the Realm, Lady,Seven Kingdoms, Breaker of Chains,Mother of Dragons,tv series
+
+pag 2 Characters:
+khaleesi,daenerys targaryen,jon snow,night king,cersei lannister,jaime lannister,Eddard "Ned" Stark,Robert Baratheon,Catelyn Stark,Jorah Mormont	,Petyr "Littlefinger",Viserys Targaryen	,Sansa Stark,Arya Stark,Robb Stark	,Theon Greyjoy,Bran Stark,Joffrey Baratheon	,Sandor "The Hound" Clegane,Tyrion Lannister,Khal Drogo,Tywin Lannister,Davos Seaworth,Samwell Tarly,Margaery Tyrell	,Stannis Baratheon,Melisandre,Jeor Mormont,Bronn,Varys,Shae,Ygritte,Talisa Maegyr,Gendry,Tormund Giantsbane	,Gilly,Brienne of Tarth,Ramsay Bolton,Ellaria Sand,Daario Naharis,Missandei,Jaqen H'ghar,Tommen Baratheon,Roose Bolton,The High Sparrow
+
+pag 3 Houses:
+targaryen,stark,lannister,tyrell,baratheon,tuly,martell,great house
+
+pag 4 Locations:
+Winterfell,The Dreadfort,Castle Black,The Gift,Moat Cailin,The Twins,Eyrie,Riverrun,Inn at the Crossroads,Harrenhal,Dragonstone,Casterly Rock,Storm's End,Braavos,Pentos,Volantis,Meereen,Astapor,Vaes Dothrak,Garth
+
+pag5 Referinte in cultura:
+cartile lui R.R. Martin
+A Game of Thrones,A Clash of Kings,A Storm of Swords,A Feast for Crows,A Dance with Dragons,The Winds of Winter
+
+surse:http://wikiofthrones.com/
+https://en.wikipedia.org/wiki/Game_of_Thrones
+http://gameofthrones.wikia.com/wiki/Game_of_Thrones_Wiki
+http://www.imdb.com/title/tt0944947/
+http://viewers-guide.hbo.com/
+https://www.hbo.com/game-of-thrones

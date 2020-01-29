@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> MI 11</title>
+	<script src="sursa.js"></script>
+</head>
+<body>
+	<div>
+		<p>Subiect:</p>
+		<input type="text" id="nume" value="nume">
+		<p id="rez"></p>
+	</div><br/>
+
+	<div>
+		<p>Predicat:</p><br/>
+		<select id="sel">
+  			<option value="prinde">prinde</option>
+  			<option value="vede">vede</option>
+  			<option value="are">are</option>
+		</select>
+		<p id="rez2"></p>
+	</div><br/>
+
+	<div>
+		<p>Complement:</p><br/>
+		<select multiple id="multiplu">
+  			<option value="soareci">soareci</option>
+  			<option value="stele">stele</option>
+			<option value="mere">mere</option>
+ 			<option value="prajituri">prajituri</option>
+		</select>
+		<p id="rez3"></p>
+	</div><br/>
+
+	<div>
+		<p>Grad balbaiala:</p><br/>
+		<p id="st"></p><input type="range" id="range"><p id="dr"></p>
+		<p id="rez4"></p>
+	</div><br/>
+
+	<div id="submit">
+		<input type="submit" id="sub" value="Submit" onclick="clicked()">
+		<p id="rezfinal"></p>
+	</div>
+</body>
+</html>

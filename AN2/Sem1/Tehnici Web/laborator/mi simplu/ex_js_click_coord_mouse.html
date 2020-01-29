@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<script>
+	window.onload=function(){
+		window.onclick=function(e){
+			var div_coord=document.createElement("div");
+		div_coord.style.position="absolute";//sa il putem pozitiona la anumite coordonate
+
+		//setam topul si leftul la coorodnatele clickului
+		div_coord.style.left=e.pageX+"px";
+		div_coord.style.top=e.pageY+"px";
+		
+		//seteam divul cu border si background
+		div_coord.style.border="1px solid black";
+		
+		//adaugam divul in pagina
+		document.body.appendChild(div_coord);
+	}
+}
+</script>
+</head>
+<body>
+	<p>La click in pagina, sa se creeze un div de dimensiune 1X1px de culoare neagra, pozitionat chiar in dreptul clickului</p>
+</body>
+</html>

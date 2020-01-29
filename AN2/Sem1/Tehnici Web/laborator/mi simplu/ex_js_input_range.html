@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "UTF-8">
+	<title>Range</title>
+	<script>
+	window.onload=function(){
+		var lista=document.createElement("ul");
+		document.body.appendChild(lista);
+	}
+	function genLista() {
+		inputuri=document.querySelectorAll("input[type=range]");
+		var nr = inputuri[0].value;
+		var lista=document.getElementsByTagName("ul");
+		var elemente=lista[0].children;
+		var dim=elemente.length;
+		if(dim<nr) {
+			for(var i =dim+1;i<=nr;i++) {
+				var txt=document.createTextNode(i);
+				var elem=document.createElement("li");
+				elem.appendChild(txt);
+				lista[0].appendChild(elem);
+			}
+		}
+		if(dim>nr) {
+			for(var i =0;i<dim-nr;i++) {
+				lista[0].removeChild(lista[0].lastChild);
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<p>Sa se scrie o pagina cu un input de tip range cu valori intre 10 si 20. La schimbarea valorii range-ului se va genera o lista cu valori de la 1 pana la valoarea selectata in range. Daca se schimba din nou range-ul se schimba si elementele listei.</p>
+	<input type="range" onchange="genLista()" min="10" max="20" value="10">
+</body>
+</html>

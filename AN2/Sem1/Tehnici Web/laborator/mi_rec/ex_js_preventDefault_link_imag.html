@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+	<meta charset="UTF-8"/>
+	<title>Exemplu creare dinamica de imagini</title>
+	<script>
+	var k=0;
+	function creeazaImagineDupa(){
+		if(k==0){
+			var imag=document.createElement("img");
+			var a=document.getElementsByTagName("a");
+			imag.src=a[0].href;
+			document.body.appendChild(imag);
+			k=k+1;
+		} else {
+			var img=document.getElementsByTagName("img");
+			document.body.removeChild(img[0]);
+			k=0;
+		}
+	}
+	window.onload=function(){
+		document.getElementsByTagName("a")[0].addEventListener("click", function(event){
+			event.preventDefault()
+			creeazaImagineDupa();
+		});
+	}
+	</script>
+</head>
+<body>
+	<a href="http://irinaciocan.ro/imagini/nenea_html.png">link imagine</a>
+</body>
+</html>

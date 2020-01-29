@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>O lista</title>
+	<script>
+	/*window.onload=function(){
+		var o=document.getElementsByTagName("ol")[0];
+		var l=o.children;
+	//aici nu merge sa parcurg toate elementele cu for
+		for(var i=0;i<l.length;i++){
+		var k=l[2];var i=2;
+		k.onclick=function(){
+			k.style.color="green";
+			for(var j=0;j<i;j++){
+				var k2=l[j];
+				k2.style.color="red";
+			}
+			for(var j=i+1;j<l.length;j++){
+				var k2=l[j];
+				k2.style.color="blue";
+			}
+		}
+		//}
+	}*/
+	//metoda 2
+	function functie(e){
+		e=e.target;
+		var i=parseInt(e.id);
+		i--;
+		e.style.color="green";
+		var l=document.getElementsByTagName("li");
+		for(var j=0;j<i;j++){
+			var k=l[j];
+			k.style.color="red";
+		}
+		for(var j=i+1;j<l.length;j++){
+			var k=l[j];
+			k.style.color="blue";
+		}
+	}
+	</script>
+</head>
+<body>
+	<ol id="lista">
+		<li id="1" onclick="functie(event)">Gigel</li>
+		<li id="2" onclick="functie(event)">cauta</li>
+		<li id="3" onclick="functie(event)">papagali</li>
+		<li id="4" onclick="functie(event)">mov</li>
+		<li id="5" onclick="functie(event)">pe</li>
+		<li id="6" onclick="functie(event)">campia</li>
+		<li id="7" onclick="functie(event)">albasta</li>
+		<li id="8" onclick="functie(event)">sub</li>
+		<li id="9" onclick="functie(event)">soarele</li>
+		<li id="10" onclick="functie(event)">verde</li>
+	</ol>
+</body>
+</html>

@@ -1,0 +1,47 @@
+#fereastra{
+	width: 500px;
+	height: 200px;
+	border: brown inset 7px;
+	background: navy;
+	position: relative;
+	overflow: hidden;
+}
+
+#soare{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	position: absolute;
+	top: 0px;
+	background: red;
+	animation-name: plimbare_soare;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@Keyframes plimbare_soare{
+	0%{
+		left: -100px;
+	}
+	50%{
+		background: yellow;
+	}
+	100%{
+		left: 500px;
+		background: red;
+	}
+}
+/*
+	<div id="">
+		<div>
+			<div>
+.....................
+inchidem
+#container_soare div{
+	transform: rotate(30deg);
+	width: 200px;
+	height: 10px;
+	background: yellow;
+}
+*/

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+	<meta charset="UTF-8"/>
+	<title>Trei butoane colorate</title>
+	<link rel="stylesheet" type="text/css" href="trei_butoane_colorate.css"/>
+	<script>
+	/*var nr=0;
+	window.onload=function(){
+		if (nr=localStorage.getItem("nr2")){
+			var nr3=parseInt(nr);
+			while(nr3!=0){
+				var nr4=nr3%10;
+				creeazaDiv(nr4);
+				nr3=Math.floor(nr3/10);
+			}
+		} else nr=0;
+	}
+	window.onbeforeunload = function() {
+		var divulete=document.body.children;
+		var dimens=divulete.length;
+		if(length>3){//exista div-uri inainte de a incarca pagina din nou
+			nr=0;
+			for(var i=2;i<dimens;i++){//sar pt cele 3 butoane
+				var x;
+				if(divulete[i].id=="b_rosu")     x=1;
+				if(divulete[i].id=="b_albastru") x=2;
+				if(divulete[i].id=="b_verde")    x=3;
+				nr=nr*10+x;
+			}
+		}
+		localStorage.setItem("nr2", nr);
+	}
+	*/
+	window.ondblclick=function(){
+		nr=0;
+		localStorage.setItem("nr2", nr);
+		var divuri=document.getElementsByClassName("patratel");
+		var nr2=divuri.length;
+		for(var i=0;i<nr2;i++) {
+			document.body.removeChild(divuri[0]);
+		}
+	}
+	function creeazaDiv(x){
+		var culoare;
+		x=parseInt(x);
+		if(x==1) culoare="red";
+		if(x==2) culoare="blue";
+		if(x==3) culoare="green";
+
+		var d=document.createElement("div");
+		d.className="patratel";
+		d.style.backgroundColor=culoare;
+		d.style.width = "100px";
+		d.style.height = "100px";
+		document.body.appendChild(d);
+
+		d.addEventListener("mouseover",function() {
+			window.onkeypress=function(e){
+				var cod_ascii=e.which;
+				var caracter=String.fromCharCode(cod_ascii);
+				if ( caracter == "s") {
+					document.body.removeChild(d);
+				}
+			}
+		});
+	}
+	</script>
+</head>
+<body>
+	<button id="b_rosu" onclick=creeazaDiv("1")>B1</button>
+	<button id="b_albastru" onclick=creeazaDiv("2")>B2</button>
+	<button id="b_verde" onclick=creeazaDiv("3")>B3</button>
+</body>
+</html>

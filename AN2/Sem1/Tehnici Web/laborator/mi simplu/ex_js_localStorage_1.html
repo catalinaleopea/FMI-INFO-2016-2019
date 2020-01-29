@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+	<meta charset="UTF-8"/>
+	<title>Fisier de baza</title>
+	<script>
+	var nr=0;
+	window.onload=function(){
+		if (nr=localStorage.getItem("nr2"))
+			nr=parseInt(nr)+1;
+		else
+			nr=1;
+		localStorage.setItem("nr2", nr);
+		
+		var text=document.createTextNode(nr);
+		document.body.appendChild(text);
+
+		var b=document.createElement("input");
+		b.type="button";
+		b.value="sterge";
+		document.body.appendChild(b);
+
+		b.onclick=function(){
+			nr=1;
+			localStorage.removeItem("nr2");
+		}
+	}
+	</script>
+</head>
+<body>		
+</body>
+</html>

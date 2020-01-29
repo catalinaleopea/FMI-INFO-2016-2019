@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Lista cu diverse elemente DOM</title>
+		<script>
+			window.onload=function() {
+	 		var c = document.getElementsByTagName("li");
+    		for (var i = 0; i < c.length; i++) {
+    			if(c[i].firstChild.nodeType==3) {//tipul text
+   	    			var t = document.createTextNode("textNode");
+    			} else {
+					var t = document.createTextNode(c[i].children[0].tagName);
+    			}
+     			document.getElementsByTagName("ul").insertBefore(t, c[i]);
+    		}
+    	}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>o pisica</li>
+			<li><i>Felis catus</i></li>
+			<li><b>miau</b></li>
+			<li><strong>Miau-hisssssss!!!</strong></li>
+			<li>alta pisica</li>
+			<li><em>Miiiiiaaaau</em></li>
+			<li><s>ham</s></li>
+			<li>inca o pisica</li>
+<!--			Sa se adauge la sfarsitul fiecarui element li cate un textNode, continand fi valoarea "textNode" daca li-ul contine un textNode, fie numele tagului, daca li-ul contine un element.-->
+		</ul>
+	</body>
+</html>

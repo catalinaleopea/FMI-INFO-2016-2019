@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>O lista</title>
+	<script>
+	window.onkeypress=function(e) {
+		var cod_ascii=e.which;
+		var caracter=String.fromCharCode(cod_ascii);
+		if ( caracter == "t") {
+			var elem=document.body.children;
+			for(var i=0;i<elem.length;i++){
+				var box=elem[i].children;
+				for(var j=0;j<box.length;j++){
+					var str=box[j].innerText;
+					if(str.search("s")!=-1)
+						box[j].style.backgroundColor= "pink";
+				}
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<ol id="lista">
+		<li>Gigel</li>
+		<li>cauta</li>
+		<li>papagali</li>
+		<li>mov</li>
+		<li>pe</li>
+		<li>campia</li>
+		<li>albasta</li>
+		<li>sub</li>
+		<li>soarele</li>
+		<li>verde</li>
+	</ol>
+</body>
+</html>

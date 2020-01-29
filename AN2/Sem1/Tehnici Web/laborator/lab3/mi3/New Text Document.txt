@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<link 
+		type="text/css"
+		rel="stylesheet"
+		href="stil1.css">
+	</head>
+	<body>
+		<div id="fereastra">
+			<div id="soare"> </div>
+		</div>
+	</body>
+	
+</html>

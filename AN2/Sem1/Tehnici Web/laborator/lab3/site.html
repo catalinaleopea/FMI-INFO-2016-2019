@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)http://irinaciocan.ro/temporar_tweb/exemplu_responsive.html# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<style>
+	nav{
+		width:100%;
+		position:fixed;
+	}
+
+	main{
+		padding-left:10%;
+		padding-right:10%;
+		padding-top:50px;
+	}
+
+	*{
+		margin:0px;
+		padding:0px;
+	}
+
+	p.text{
+		width:60%;
+		float:left;
+	}
+	figure.img-wrap{
+		width:40%;
+		float:left;
+	}
+
+	figure.img-wrap>img{
+		width:100%;
+		height:auto;
+		
+	}
+
+	ul.menu, ul.submenu{
+		margin:0px;
+		padding:0px;
+		text-indent:0px;
+	}
+
+	html{
+		font-size: 16px;
+		}
+
+	ul.menu>li, ul.menu>li>ul.submenu>li{
+		display:block;
+		
+		/*font-size:1vw;*/
+		font-size:1.2rem;
+		font-weight:bold;
+		height:1.2rem;
+		text-align:center;
+		line-height:1.2rem;
+		list-style-type:none;
+		overflow:hidden;
+		padding:0px;
+		margin:0px;
+	}
+	ul.menu>li{
+	 float:left;
+	 width:12.5%;
+	}
+	ul.submenu>li{
+	 width:100%;
+	}
+	ul.menu>li>a,ul.submenu>li>a{
+		display:block;
+		height:	100%;
+		text-decoration:none;
+		color:black;
+	}
+	ul.menu>li:nth-of-type(even) a{
+		background:pink;
+	}
+	ul.menu>li:nth-of-type(odd) a{
+		background:lightblue;
+	}
+
+	ul.menu>li>ul.submenu{
+		position:relative;
+		top:0px;
+	}
+
+	ul.menu>li>ul.submenu>li
+	{
+		border-top:1px solid black;
+	}
+	ul.menu>li>ul.submenu>li:last-child
+	{
+		border-bottom:1px solid black;
+	}
+	ul.menu>li:hover{
+		overflow:visible;
+	}
+
+	ul.menu>li>a:hover, ul.submenu>li>a:hover{
+		background:yellow;
+	}
+
+	@media screen and (min-width:300px) and (max-width:600px){
+		p.text{
+		float:none;
+		width:100%;
+		}
+		figure.img-wrap{
+		width:100%;
+		}
+		
+		ul.menu>li{
+		 width:25%;
+		}
+
+		ul.menu>li:hover ul.submenu{
+			width:100vw;
+			position:absolute;
+			left:0px;
+			top:1.2rem;
+			border-top:1px solid magenta;
+			border-bottom:1px solid black;
+		}
+		
+		ul.menu>li:nth-of-type(even):hover ul.submenu{
+				background:pink;
+		}
+		ul.menu>li:nth-of-type(odd):hover ul.submenu{
+				background:lightblue;
+		}
+		ul.menu>li:hover ul.submenu>li{
+			float:left;
+			width:15%;
+			border:none;
+	}
+
+	@media screen and (max-width:300px){
+		p.text{
+		float:none;
+		width:100%;
+		}
+		figure.img-wrap{
+		width:100%;
+		}
+	}
+	</style>
+</head>
+<body>
+<header>
+	<nav class="wrapper">
+		<ul class="menu">
+			<li><a href="http://irinaciocan.ro/temporar_tweb/exemplu_responsive.html#">B1</a></li>
+			<li>
+				<a href="http://irinaciocan.ro/temporar_tweb/exemplu_responsive.html#">B2</a>
+				<ul class="submenu">
+					<li><a href="http://irinaciocan.ro/temporar_tweb/exemplu_responsive.html#">B2-SB1</a></li>
+					<li><a href="http://irinaciocan.ro/temporar_tweb/exemplu_responsive.html#">B2-SB2</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="http://irinaciocan.ro/temporar_tweb/exemplu_responsive.html#">B3</a>
+				<ul class="submenu">
+					<li><a href="http://irinaciocan.ro/temporar_tweb/exemplu_responsive.html#">B3-SB1</a></li>
+					<li><a href="http://irinaciocan.ro/temporar_tweb/exemplu_responsive.html#">B3-SB2</a></li>
+				</ul>
+			</li>
+			<li><a href="http://irinaciocan.ro/temporar_tweb/exemplu_responsive.html#">B4</a></li>
+			<li><a href="http://irinaciocan.ro/temporar_tweb/exemplu_responsive.html#">B5</a></li>
+			<li><a href="http://irinaciocan.ro/temporar_tweb/exemplu_responsive.html#">B6</a></li>
+			<li><a href="http://irinaciocan.ro/temporar_tweb/exemplu_responsive.html#">B7</a></li>
+			<li><a href="http://irinaciocan.ro/temporar_tweb/exemplu_responsive.html#">B8</a></li>
+		</ul>
+	</nav>
+</header>
+<main>
+	<h2>Happy</h2>
+	<p class="text">ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva ceva </p>
+	<figure class="img-wrap">
+		<img alt="robots image" class="responsive" src="./exemplu_responsive_files/stock-vector-illustration-of-best-friends-ever-cat-and-dog-105987983.jpg">
+		<figcaption>Miau Ham</figcaption>
+	</figure>
+</main>
+
+</body></html>

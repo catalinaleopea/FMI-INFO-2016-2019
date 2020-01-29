@@ -1,0 +1,98 @@
+var imagini = 
+["http://irinaciocan.ro/tehnici_web/imagini/glob_mic1.png",
+"http://irinaciocan.ro/tehnici_web/imagini/glob_mic2.png",
+"http://irinaciocan.ro/tehnici_web/imagini/glob_mic3.png",
+"http://irinaciocan.ro/tehnici_web/imagini/glob_mic4.png",
+"http://irinaciocan.ro/tehnici_web/imagini/glob_mic5.png",
+"http://irinaciocan.ro/tehnici_web/imagini/glob_mic6.png",
+"http://irinaciocan.ro/tehnici_web/imagini/glob_mic7.png",
+"http://irinaciocan.ro/tehnici_web/imagini/glob_mic8.png"];
+
+var nrG;
+
+
+function int_rand(a,b){
+	return Math.floor(Math.random()*(b-a)+a);//generez un numar intreg random in intervalul [a,b)
+}
+
+function initData(e){
+	localStorage.clear();
+	e.stopPropagation();
+	location.reload();
+}
+
+function clearGlob(x,y){
+	var key = x + "/" + y;
+	localStorage.removeItem(key);
+}
+
+function removeGlob(e){
+	e.stopPropagation();
+	if(e.ctrlKey)
+	{
+		var glob = document.getElementById(this.id);
+		for(var i = 0 ; i < localStorage.length ; i++)
+		{
+			if(localStorage.key(i).indexOf("/") >= 0 && 
+			localStorage.getItem(localStorage.key(i)) == this.id.substr(1,this.id.length))
+			{
+				localStorage.removeItem(localStorage.key(i));
+				nrG = parseInt(localStorage.getItem("Number")) - 1;
+				localStorage.setItem("Number",nrG);
+				localStorage.removeItem(this.id);
+				location.reload();
+				break;
+			}		
+		}
+	}
+}
+
+window.onload = function(){
+	var clearButton = document.getElementById("clear");
+	clearButton.onclick = initData;
+	nrG = localStorage.getItem("Number");
+	if(nrG != null)
+	{
+		nrg = parseInt(nrG);
+		for(var i = 0 ; i < localStorage.length ; i++)
+		{
+			if(localStorage.key(i).indexOf("/") >= 0)
+			{
+				var globId = localStorage.getItem(localStorage.key(i));
+				globId = parseInt(globId);
+				var globIndex = localStorage.getItem(globId);
+				var position = localStorage.key(i);
+				var coords = position.split("/");
+				var glob = document.createElement("img");
+				glob.src = imagini[globIndex];
+				glob.id = "G" + globId;
+				glob.style.position = "absolute";
+				glob.addEventListener("click",removeGlob);
+				glob.style.left = coords[0] + "px";
+				glob.style.top = coords[1] + "px";
+				document.body.appendChild(glob);
+			}
+		}
+	}
+	else
+		nrG = 0;
+	window.onclick = function(e){
+		if(!e.ctrlKey)
+		{
+			var globIndex = int_rand(0,8);
+			var glob = document.createElement("img");
+			glob.id = "G" + parseInt(nrG);
+			nrG += 1;
+			glob.src = imagini[globIndex];
+			glob.style.position = "absolute";
+			glob.style.left = e.pageX+"px";
+			glob.style.top = e.pageY+"px";
+			glob.addEventListener("click",removeGlob);
+			document.body.appendChild(glob);
+			var key = e.pageX + "/" + e.pageY;
+			localStorage.setItem(key,glob.id);
+			localStorage.setItem(glob.id,globIndex);
+			localStorage.setItem("Number",nrG);
+		}
+	}
+}

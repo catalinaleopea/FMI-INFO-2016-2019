@@ -1,0 +1,25 @@
+body{
+	border: 20px solid #ff00ff;
+	padding: 20px;
+	max-width: 900px;
+	width: 80%;
+	margin:20px auto;
+	font-family: Source Sans Pro;
+    background-image: url("pexels-photo.jpg");
+}
+h2{
+	color:#9966ff;
+	font-size: 2.0rem;
+}
+table,td,th{
+	border: 2px solid #ff00ff;
+}
+footer{
+	text-align: center;
+}
+#date,#date2{
+	display:inline-block;
+	width: 250px;
+    height: 260px;
+    margin: 20px;
+}

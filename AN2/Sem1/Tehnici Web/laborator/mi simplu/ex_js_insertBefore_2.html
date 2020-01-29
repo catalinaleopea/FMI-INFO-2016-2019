@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Un buton</title>
+	<script>
+	var txt= "paragraf";
+	var i = 1;
+	func = function(){
+		var par = document.createElement("p");
+		var res = txt.concat(i);
+		var text = document.createTextNode(res);
+		par.appendChild(text);
+		document.body.appendChild(par);
+		var corp = document.getElementById("but").parentNode;
+		corp.insertBefore(par, document.getElementById("but"));
+		i = i + 1;
+	}
+	</script>
+</head>
+<body>
+	<button id="but" onclick="func()">Butonash</button>
+</body>
+</html>

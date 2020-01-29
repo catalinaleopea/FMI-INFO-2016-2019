@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Input de tip text, avand alaturi un buton</title>
+	<script>
+	var creat = 0;
+	function creeazaLista() {
+		var input= document.getElementById("textbox").value;
+		if (creat == 0) {
+			var lista=document.createElement("ol");
+			var txt=document.createTextNode(input);
+			var elem=document.createElement("li");
+			elem.appendChild(txt);
+			lista.appendChild(elem);
+			document.body.appendChild(lista);
+			creat = 1;
+		} else {
+			var lista=document.getElementsByTagName("ol");
+			var elem=document.createElement("li");
+			var txt=document.createTextNode(input);
+			elem.appendChild(txt);
+			lista[0].appendChild(elem);
+		}
+	}
+	</script>
+</head>
+<body>
+	<input type="text" id="textbox"><button id="buton" onclick="creeazaLista()">ok</button>
+</body>
+</html>

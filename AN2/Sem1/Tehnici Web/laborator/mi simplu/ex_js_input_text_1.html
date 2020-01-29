@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Input de tip text, avand alaturi un buton</title>
+	<script>
+	function creeazaPar() {
+		var par=document.createElement("p");
+		var input= document.getElementById("textbox").value;
+		var txt=document.createTextNode(input);
+		par.appendChild(txt);
+		document.body.appendChild(par);
+	}
+	</script>
+</head>
+<body>
+	<input type="text" id="textbox"><button id="buton" onclick="creeazaPar()">ok</button>
+</body>
+</html>

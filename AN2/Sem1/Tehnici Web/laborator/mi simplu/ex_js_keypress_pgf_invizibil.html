@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript">
+		var i = 0;
+		window.onkeypress=function(e) {
+			var cod_ascii=e.which;
+			var caracter=String.fromCharCode(cod_ascii);
+			if ( caracter == "q") {//daca am apasat tasta q
+				if( i == 0) { //si inca nu a disparut paragraful
+					document.getElementById("p1").style.display = "none";
+					i = 1;
+				} else {
+					document.getElementById("p1").style.display = "block";
+					i = 0;
+				}
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<p id="p1">La apasarea tastei "q", acest paragraf va deveni invizibil, iar la o noua apasare va deveni vizibil</p>
+	</body>
+</html>

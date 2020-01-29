@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+	<title>Divuri</title>
+	<script>
+		window.onload=function(){
+			var textnode = document.createTextNode("are fii de acelasi fel");
+			var textnode2 = document.createTextNode("impostor");                    
+			var divuri = document.getElementsByTagName("div"); 
+			for(var i=0;i<divuri.length;i++){
+				var newItem = document.createElement("p");
+				var un_div=divuri[i].children;
+				var tip=un_div[0].nodeType;
+				var ok=0;
+				for(var j=1;j<un_div.length;j++) {
+					if(un_div[j].nodeType != tip){
+						ok=1;
+					}
+				}
+				if(ok==0){
+					newItem.appendChild(textnode);
+				} else {
+					newItem.appendChild(textnode2);
+				}
+				document.body.insertBefore(newItem, divuri[i]);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<img src="http://irinaciocan.ro/tehnici_web/imagini/floricica1_bleu_40x40.png" alt="floricica">
+		<img src="http://irinaciocan.ro/tehnici_web/imagini/floricica1_violet_40x40.png" alt="floricica">
+		<img src="http://irinaciocan.ro/tehnici_web/imagini/floricica1_albastra_40x40.png" alt="floricica">
+		<img src="http://irinaciocan.ro/tehnici_web/imagini/floricica1_galbena_40x40.png" alt="floricica">
+	</div>
+	<div>
+		<button>hey</button>
+		<input type="button" value="hello"><!--alt tag pentru buton-->
+		<button>Salutare</button>
+	</div>
+	<div>
+		<p>ab<span>c</span></p>
+		<p>def</p>
+		<p>ghi</p>
+		<p><span>j</span>kl</p>
+	</div>
+	<div>
+		<button>butonel</button>
+		<img src="http://irinaciocan.ro/tehnici_web/imagini/floricica1_galbena_40x40.png" alt="floricica">
+		<span>Salutare</span>
+	</div>	
+</body>
+</html>

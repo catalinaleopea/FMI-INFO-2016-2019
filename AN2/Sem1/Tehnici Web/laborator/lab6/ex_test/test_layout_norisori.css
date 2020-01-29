@@ -1,0 +1,383 @@
+*{
+	margin:0;
+	padding:0;
+	border-width:0;
+	
+}
+
+
+html {
+	font-size:18px;
+}
+
+body {
+	background-color:#d6f0ff;
+	background-image:url('http://irinaciocan.ro/tehnici_web_2015/imagini/background_nori.png');
+	color:black;
+}
+
+main{
+	margin-left:15%;
+	margin-right:15%;
+	padding-left:3%;
+	padding-right:3%;
+	clear:both;
+	padding-top:4em;
+	box-sizing:border-box;
+	background-color:#d6f0ff;
+	position:relative;
+}
+main::before{
+	 background-image: -webkit-linear-gradient(left, #000, transparent); 
+	 background-image: -moz-linear-gradient(left, #000, transparent);
+	 background-image: -o-linear-gradient(left, #000, transparent);
+	 background-image: linear-gradient(to left, #d6f0ff, transparent);
+	 height:100%;
+	 position:absolute;
+	 top:0;
+	 left:-10%;
+	 width:10%;
+	 display:block;
+	 z-index:1000;
+	 content:" ";
+}
+
+main::after{
+	 background-image: -webkit-linear-gradient(right, #000, transparent); 
+	 background-image: -moz-linear-gradient(right, #000, transparent);
+	 background-image: -o-linear-gradient(right, #000, transparent);
+	 background-image: linear-gradient(to right, #d6f0ff, transparent);
+	 height:100%;
+	 position:absolute;
+	 top:0;
+	 right:-10%;
+	 width:10%;
+	 display:block;
+	 z-index:1000;
+	 content:" ";
+}
+
+
+div#container>header{
+	background:rgba(214,240,255,0.5);
+}
+div#container>header h1{
+padding-left:5rem;
+}
+div#container>header p{
+padding-left:5rem;
+}
+/*---------------zona sigla--------*/
+
+div#soare{
+	width:8rem;
+	height:8rem;
+	border-radius:50%;
+	box-shadow: 0 0 1rem 1rem #e6ff5b;
+	background:yellow;
+	position:relative;
+	top:-4rem;
+	left:-4rem;
+}
+
+div#sigla_sus{
+	height:5rem;
+	position:absolute;
+	z-index:5;
+}
+/*---------------lista norisori-------------*/
+ul.list_nori li:before {
+		content: ' ';
+		background-image:url('http://irinaciocan.ro/tehnici_web_2015/imagini/nor_bullet.png');
+		overflow:hidden;
+		display:inline-block;
+		width:1em;
+		height:1em;
+		vertical-align:middle;
+		margin-right:1em;
+		background-size:cover;
+	}
+ul.list_nori		
+{
+	list-style-type:none;
+	padding:2rem;
+}
+
+/* --------------meniu-------------*/
+
+ul#meniu_norisori>li, ul#meniu_norisori>li ul>li{
+	display:block;
+	font-size:1.2rem;
+	font-weight:bold;
+	height:1.5rem;
+	text-align:center;
+	line-height:1.5rem;
+	list-style-type:none;
+	overflow:hidden;
+	padding:0px;
+	margin:0px;
+}
+
+
+ 
+ul#meniu_norisori>li{
+ float:left;
+ width:5em;
+}
+
+ul#meniu_norisori>li>a,ul#meniu_norisori ul>li>a{
+	display:block;
+	height:	100%;
+	text-decoration:none;
+	color:black;
+	transition:background-color 1s;
+}
+
+
+ul#meniu_norisori>li ul{
+
+	z-index:10;
+	
+}
+
+ul#meniu_norisori>li ul>li
+{
+	border-top:0.1rem solid #9cc3db;
+	background: #bed1dd;
+}
+
+ul#meniu_norisori>li ul>li:last-child
+{
+	border-bottom:0.1rem solid #9cc3db;
+	border-bottom-left-radius:1rem;
+	border-bottom-right-radius:1rem;
+}
+ul#meniu_norisori>li:hover{
+	overflow:visible;
+}
+ul#meniu_norisori>li:hover ul{
+		opacity:1;
+}
+ul#meniu_norisori>li ul{
+	position:relative;
+	opacity:0;
+	transition:opacity 1s;
+}
+
+
+ul#meniu_norisori>li>a:hover, ul#meniu_norisori>li ul>li>a:hover{
+	background:#9cc3db;
+}
+
+ul#meniu_norisori{
+	background: #bed1dd;
+	height:auto;
+	float:left;
+	width:100%;
+	border-top :0.1rem solid #9cc3db;
+	border-bottom :0.1rem solid #9cc3db;
+}
+/*---------------------------------*/
+
+
+/*----------------produse-------------*/
+div.produse{
+	display:flex;
+}
+section.produse figure{
+	border:0.1rem solid #9cc3db;
+	border-bottom-left-radius:1rem;
+	border-bottom-right-radius:1rem;
+	border-top-right-radius:1rem;
+	width:33.33%;
+	margin-right:10%;
+	position:relative;
+	padding-bottom:50%;
+	position:relative;
+	background:white;
+	box-sizing:border-box;
+	margin-top: 4rem;
+}
+section.produse figure:last-child{
+	margin-right:0;
+}
+section.produse figure img{
+	width:100%;
+
+}
+
+section.produse figure div.cer{
+	width:100%;
+	border-bottom:0.1rem solid #9cc3db;
+	background:skyblue;
+	border-top-right-radius:1rem;
+}
+
+section.produse figure p{
+	margin-bottom:1.5rem;
+	padding-left:3%;
+	padding-right:3%;
+
+	}
+
+section.produse figure h2{
+	position:absolute;
+	background:#bed1dd;
+	top: -0.75rem;
+	left: -3.5rem ;
+	font-size:1.1rem;
+	height:1.5rem;
+	width:7rem;
+	text-align:center;
+	line-height:1.5rem;
+	padding-left:1rem;
+	padding-right:1rem;
+	z-index:1000000;
+	border-top-right-radius:1rem;
+	border-top-left-radius:1rem;
+	transform:rotate(-30deg);
+	}
+/*---------------------------------*/
+
+
+
+
+
+/*************tabel*********************/
+#sectiune_tabel{
+	margin-top:2rem;
+	padding-bottom:2rem;
+}
+table.specificatii_norisori{
+	border-spacing:0;
+	width:100%;
+}
+table.specificatii_norisori td, table.specificatii_norisori th{
+	border:0.1rem solid #9cc3db;
+	padding:0.4rem;
+}
+
+
+
+/**********sfarsit tabel***************/
+
+
+/**********sectiune note************/
+body{
+	counter-reset: contor;
+}
+
+a.note{
+	counter-increment: contor;
+}
+a.note::after{
+	content: "[" counter(contor) "]";
+	font-size: 0.8rem;
+}
+
+/************************************/
+/*************footer*****************/
+footer {
+	font-size: 0.7rem;
+	
+}
+footer aside{
+	text-align:left;
+	padding-left:1.5rem;
+}
+footer small{
+	display:block;
+	background:grey;
+	text-align:center;
+}
+
+footer{
+	text-align:center;
+	background:#a3a3a3;
+	color:black;
+}
+/**************animatie backgr nori*************/
+
+div.cer{
+	animation:anim_cer 4s linear infinite alternate;
+	-webkit-animation-fill-mode: forwards; 
+  animation-fill-mode: forwards;
+	-webkit-animation-play-state: paused; 
+  animation-play-state: paused;
+}
+
+div.cer:hover{
+	-webkit-animation-play-state: running; 
+  animation-play-state: running;
+}
+
+@keyframes anim_cer{
+	0% { 
+		background:skyblue;
+	}
+
+	100% {
+		background:darkblue;
+	}
+}
+
+/*********sfarsit animatie header***********/
+
+@media screen and (max-width:800px){
+	/**********layout principal*******/
+	html{
+		font-size:14px;
+	}
+	main{
+		padding-left:10%;
+		padding-right:10%;
+	}
+	
+	
+
+		div.produse{
+	display:block;
+	}
+	
+	section.produse figure{
+		width:100%;
+		margin-right:0;
+		margin-left:0;
+	}
+	
+		section.produse figure {
+		padding-bottom:4%;
+	}
+
+	/********sfarsit layout*************/
+
+@media screen and (max-width:480px){
+
+	/**********layout principal*******/
+	html{
+		font-size:10px;
+	}
+	main{
+		padding-left:1%;
+		padding-right:1%;
+	}
+	/********sfarsit layout*************/
+	/*********articole******************/
+	div.produse{
+	display:block;
+	}
+	
+	section.produse figure{
+		width:100%;
+		margin-right:0;
+		margin-left:0;
+	}
+	/*****sfarsit articole***********/
+	header p{
+		visibility:hidden;
+	}
+	
+	table.specificatii_norisori{
+		display:none;
+	}
+}

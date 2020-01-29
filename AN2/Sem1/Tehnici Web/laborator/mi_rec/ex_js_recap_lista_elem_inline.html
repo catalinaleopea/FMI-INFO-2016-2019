@@ -1,0 +1,38 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Lista</title>
+	<script>
+	window.onload=function(){
+		var taguri=["B","I","S"];
+		var par=document.getElementsByTagName("p")[0];
+		var b=document.createElement("button");
+		b.innerHTML="apasa";
+		document.body.appendChild(b);
+		b.onclick=function(){
+			var lis=returneazaLista(par,taguri);
+			document.body.appendChild(lis);
+		}
+	}
+
+	function returneazaLista(obj, taguri){
+		var lista=document.createElement("ol");
+		var copii=obj.children;
+		for(var i=0;i<copii.length;i++){
+			var str=copii[i].nodeName;
+			for(var j=0;j<taguri.length;j++){
+				if(taguri[j]==str){
+					var l=document.createElement("li");
+					l.innerHTML=copii[i].innerHTML;
+					lista.appendChild(l);
+				}
+			}
+		}
+		return lista;
+	}
+	</script>
+</head>
+<body>
+	<p id="pgf">O <b>Felis catus</b>, a prins un <s>soarece</s><b>hamster</b>, ieri pe <b>inserat</b>. </p>
+</body>
+</html>

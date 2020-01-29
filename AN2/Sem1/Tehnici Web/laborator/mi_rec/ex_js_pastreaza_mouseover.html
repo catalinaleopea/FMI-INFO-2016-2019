@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+	<meta charset="UTF-8">
+	<script>
+	window.onload=function(){
+		var d=document.createElement("div");
+		d.style.height='500px';
+		d.style.width='500px';
+		document.body.appendChild(d);
+		
+		for(var i=0;i<100;i++){
+			var divulet = document.createElement("div");
+			divulet.style.width='50px';
+			divulet.style.height='50px';
+			divulet.style.backgroundColor='rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+			divulet.style.display="inline-block";
+			d.appendChild(divulet);
+			divulet.dataset.var=0;
+		}
+		d.onmouseover=function(){
+			var v=setTimeout(curata,3000);
+			d.children[0].dataset.var=1;
+			for(var j=0;j<d.children.length;j++){
+				d.children[j].onmouseover=function(){
+					this.dataset.var=1;
+				}
+			}
+
+			function curata(){
+				for(var i=0;i<100;i++){
+					if(d.children[i].dataset.var==0){
+						d.children[i].style.display="none";
+					}
+				}
+			}
+		}
+	}
+	</script>
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+	var txt= "paragraf";
+	function creeazaParagraf(i){
+		var par=document.createElement("p");
+		var res = txt.concat(i);
+		var text = document.createTextNode(res);
+		par.appendChild(text);
+		document.body.appendChild(par);
+		par.onmouseover=function(){
+			this.style.fontVariant="small-caps";
+		}
+		par.onmouseout=function(){
+			this.style.fontVariant="normal";
+		}
+
+	}
+	window.onload = function(){
+		for( var i = 1; i < 6; i++) {
+			creeazaParagraf(i);
+		}
+	}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

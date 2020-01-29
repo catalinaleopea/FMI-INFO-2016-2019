@@ -1,0 +1,3 @@
+	
+	In mod normal, browserul foloseste latimea containerului data de formula padding+width+border,unde width este latimea textului("continutului"), insa proprietatea box-sizing face ca latimea containerului sa fie, in fapt, width-ul.
+	Deci pentru datele respective,containerul se va intinde pe 50px;

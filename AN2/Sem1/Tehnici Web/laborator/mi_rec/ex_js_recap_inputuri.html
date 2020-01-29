@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recap input</title>
+	<script>
+	window.onload=function(){
+		//FORMULAR
+		var f =document.body; //document.createElement("form");
+
+		//N1
+		var v = [0,1,2,3,4,5,6,7,8,9];
+		var s=document.createElement("select");
+		for (var i=0;i<v.length;i++) {
+			var opt=document.createElement("option");
+			opt.text=v[i];
+			s.add(opt);
+		}
+		f.appendChild(s);
+
+		//operator
+		var dim=["+","-","*","div","mod"];
+		for (var i=0;i<dim.length;i++) {
+			var c=document.createElement("input");
+			c.type="checkbox";
+			c.name=dim[i];
+			//c.value=dim[i];
+
+			var label = document.createElement("label");
+			label.htmlFor = c;
+			label.appendChild(document.createTextNode(dim[i]));
+			
+			document.body.appendChild(label);
+			label.appendChild(c);
+
+			f.appendChild(c);
+		}
+
+		//N2
+		var s2=document.createElement("select");
+		for (var i=0;i<v.length;i++) {
+			var opt=document.createElement("option");
+			opt.text=v[i];
+			s2.add(opt);
+		}
+		f.appendChild(s2);
+		
+		//BUTON
+		var b=document.createElement("button");
+		b.innerHTML="=";
+		f.appendChild(b);
+		
+		//document.body.appendChild(f);
+
+		b.onclick=function(){
+			var par=document.createElement("p");
+
+			var N1=parseInt(s.options[s.selectedIndex].value);
+			var N2=parseInt(s2.options[s2.selectedIndex].value);
+
+			var op;
+			var ch=document.querySelectorAll("input[type=checkbox]");
+			for(var i=0;i<ch.length;i++){
+				if(ch[i].checked==true){
+					op=ch[i].name;
+					ch[i].checked=false;
+				}
+			}
+
+			var operators = {
+				'+': function(a, b) {
+					return a + b;
+				},
+				'-': function(a, b) {
+					return a - b;
+				},
+				'*': function(a, b) {
+					return a * b;
+				},
+				'div': function(a,b) {
+					return a / b;
+				},
+				'mod':function(a,b){
+					return a%b;
+				}
+			};
+			var rez=operators[op](N1, N2);
+			par.innerHTML=N1+" "+op+" "+N2+" = "+rez;
+			document.body.appendChild(par);
+		}
+	}
+	</script>
+</head>
+<body>
+	<p>Se considera un fisier html ce contine un formular cu doua selecturi cu numerele de la 0 la 9, un grup de checkbox-uri cu optiunile +,-,*,div, mod. Si un buton cu textul "=". La click pe buton se va adauga cate un paragraf la finlul paginii pentru fiecare din operatiile bifate cu un text de forma: "N1 Operator N2 = Rezultat", inlocuind N1,N2,Operator, Rezultat cu valorile potrivite. Tot la click pe buton checkboxurile sunt resetate (adica debifate).</p>
+</body>
+</html>

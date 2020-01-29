@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Un buton</title>
+	<style>
+	*{
+		outline:1px solid pink;
+		margin:15px;
+	}
+	</style>
+	<script>
+	window.onload=function(){
+		var b=document.createElement("button");
+		b.innerHTML="apasa";
+		document.body.appendChild(b);
+		b.onclick=function(){
+			var imagini=document.getElementsByTagName("img");
+			for(var i=0;i<imagini.length;i++){
+				var box=imagini[i].parentElement;
+				do{
+					box.style.border =" 1px solid green";
+					box=box.parentElement;
+				}while(box!=null)
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<div>
+		<p>Paragraf</p>
+		<div>
+			<p>Alt paragraf <img src="http://irinaciocan.ro/tehnici_web/imagini/floricica1_albastra_40x40.png" alt="floricica"></p>
+			<p>Tot un paragraf</p>
+		</div>
+	</div>
+	<div>text</div>
+	<div>
+		<p>Inca un paragraf<img src="http://irinaciocan.ro/tehnici_web/imagini/floricica1_albastra_40x40.png" alt="floricica"></p>
+		<p>Ultimul paragraf</p>
+	</div>
+</body>
+</html>

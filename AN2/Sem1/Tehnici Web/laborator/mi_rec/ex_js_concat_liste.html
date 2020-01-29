@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>O lista</title>
+		<script>
+		window.onload=function(){
+			var b=document.createElement("button");
+			b.innerHTML="apasa pentru a concatena listele";
+			document.body.appendChild(b);
+			var o1=document.getElementsByTagName("ol")[0];
+			var o2=document.getElementsByTagName("ol")[1];
+			b.onclick=function(){
+				var copii=o2.children;
+				var n=copii.length;
+				for(var i=0;i<n;i++){
+					var l=document.createElement("li");
+					l.innerHTML=copii[i].innerHTML;
+					o1.appendChild(l);
+				}
+				document.body.removeChild(o2);
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<ol id="lista1">
+			<li>Gigel</li>
+			<li>cauta</li>
+			<li>papagali</li>
+			<li>mov</li>
+			<li>pe</li>
+			<li>campia</li>
+			<li>albasta</li>
+			<li>sub</li>
+			<li>soarele</li>
+			<li>verde</li>
+		</ol>
+		<ol id="lista2">
+			<li>un papuc</li>
+			<li>doarme</li>
+			<li>si viseaza</li>
+			<li>niste</li>
+			<li>ursi</li>
+			<li>care</li>
+			<li>in jurul</li>
+			<li>lui</li>
+			<li>danseaza</li>
+		</ol>
+	</body>
+</html>

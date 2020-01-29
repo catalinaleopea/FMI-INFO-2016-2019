@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Diverse elemente in body</title>
+		<script>
+			window.onload = function(){
+		 		var c = document.body.childNodes;
+    			var txt = "";
+    			for (var i = 0; i < c.length; i++) {
+        			txt = txt + c[i].tagName + "<br>";
+    			}
+   		 		document.getElementById("info").innerHTML = txt;
+		}
+		</script>
+	</head>
+	<body>
+		<h1>Un titlu</h1><button>un buton</button>ceva text<img src="http://irinaciocan.ro/imagini/nenea_html.png" alt="derp!"><p>Un paragraf</p>niste<br/>text
+		<ul>
+			<li>Element lista 1</li>
+			<li>Element lista 2</li>
+		</ul><address>Strada florilor, numarul 17.</address><div id="info"></div>
+	</body>
+</html>

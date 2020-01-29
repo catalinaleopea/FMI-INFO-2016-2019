@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ro">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Test JS</title>
+		<script type="text/javascript" src="test.js"></script>
+	</head>
+	<body>
+		<!-- 		
+			<label><input type="radio" name="grup" value="8">8</label>
+			<label><input type="radio" name="grup" value="9">9</label>
+			<label><input type="radio" name="grup" value="10" checked>10</label>
+			<label><input type="radio" name="grup" value="11">11</label>
+			<label><input type="radio" name="grup" value="12">12</label>
+		 
+		<button id="gen_str">genereaza structura</button> -->
+		<div id="struct_div">
+		<!--
+		
+
+
+
+
+			<div class="patrat" data-lin="0" data-col="0" data-prajituri="0" style="clear: left;"></div>
+			<div class="patrat" data-lin="0" data-col="1" data-prajituri="1"></div>
+			<div class="patrat" data-lin="0" data-col="2" data-prajituri="6"></div>
+			<div class="patrat" data-lin="0" data-col="3" data-prajituri="7"></div>
+			<div class="patrat" data-lin="0" data-col="4" data-prajituri="4"></div>
+			<div class="patrat" data-lin="0" data-col="5" data-prajituri="2"></div>
+			<div class="patrat" data-lin="0" data-col="6" data-prajituri="3"></div>
+			<div class="patrat" data-lin="0" data-col="7" data-prajituri="7"></div>
+			<div class="patrat" data-lin="0" data-col="8" data-prajituri="4"></div>
+			<div class="patrat" data-lin="0" data-col="9" data-prajituri="4"></div>
+			<div class="patrat" data-lin="1" data-col="0" data-prajituri="1" style="clear: left; margin-left: 20px;"></div>
+			<div class="patrat" data-lin="1" data-col="1" data-prajituri="6"></div>
+			<div class="patrat" data-lin="1" data-col="2" data-prajituri="6"></div>
+			<div class="patrat" data-lin="1" data-col="3" data-prajituri="1"></div>
+			<div class="patrat" data-lin="1" data-col="4" data-prajituri="6"></div>
+			<div class="patrat" data-lin="1" data-col="5" data-prajituri="6"></div>
+			<div class="patrat" data-lin="1" data-col="6" data-prajituri="3"></div>
+			<div class="patrat" data-lin="1" data-col="7" data-prajituri="4"></div>
+			<div class="patrat" data-lin="1" data-col="8" data-prajituri="0"></div>
+			<div class="patrat" data-lin="2" data-col="0" data-prajituri="0" style="clear: left;"></div>
+			<div class="patrat" data-lin="2" data-col="1" data-prajituri="5"></div>
+			<div class="patrat" data-lin="2" data-col="2" data-prajituri="6"></div>
+			<div class="patrat" data-lin="2" data-col="3" data-prajituri="6"></div>
+			<div class="patrat" data-lin="2" data-col="4" data-prajituri="1"></div>
+			<div class="patrat" data-lin="2" data-col="5" data-prajituri="0"></div>
+			<div class="patrat" data-lin="2" data-col="6" data-prajituri="7"></div>
+			<div class="patrat" data-lin="2" data-col="7" data-prajituri="6"></div>
+			<div class="patrat" data-lin="2" data-col="8" data-prajituri="7"></div>
+			<div class="patrat" data-lin="2" data-col="9" data-prajituri="6"></div>
+			<div class="patrat" data-lin="3" data-col="0" data-prajituri="3" style="clear: left; margin-left: 20px;"></div>
+			<div class="patrat" data-lin="3" data-col="1" data-prajituri="2"></div>
+			<div class="patrat" data-lin="3" data-col="2" data-prajituri="4"></div>
+			<div class="patrat" data-lin="3" data-col="3" data-prajituri="7"></div>
+			<div class="patrat" data-lin="3" data-col="4" data-prajituri="2"></div>
+			<div class="patrat" data-lin="3" data-col="5" data-prajituri="1"></div>
+			<div class="patrat" data-lin="3" data-col="6" data-prajituri="1"></div>
+			<div class="patrat" data-lin="3" data-col="7" data-prajituri="3"></div>
+			<div class="patrat" data-lin="3" data-col="8" data-prajituri="5"></div>
+			<div class="patrat" data-lin="4" data-col="0" data-prajituri="7" style="clear: left;"></div>
+			<div class="patrat" data-lin="4" data-col="1" data-prajituri="2"></div>
+			<div class="patrat" data-lin="4" data-col="2" data-prajituri="5"></div>
+			<div class="patrat" data-lin="4" data-col="3" data-prajituri="6"></div>
+			<div class="patrat" data-lin="4" data-col="4" data-prajituri="6"></div>
+			<div class="patrat" data-lin="4" data-col="5" data-prajituri="4"></div>
+			<div class="patrat" data-lin="4" data-col="6" data-prajituri="0"></div>
+			<div class="patrat" data-lin="4" data-col="7" data-prajituri="4"></div>
+			<div class="patrat" data-lin="4" data-col="8" data-prajituri="5"></div>
+			<div class="patrat" data-lin="4" data-col="9" data-prajituri="4"></div>
+			<div class="patrat" data-lin="5" data-col="0" data-prajituri="1" style="clear: left; margin-left: 20px;"></div>
+			<div class="patrat" data-lin="5" data-col="1" data-prajituri="4"></div>
+			<div class="patrat" data-lin="5" data-col="2" data-prajituri="6"></div>
+			<div class="patrat" data-lin="5" data-col="3" data-prajituri="5"></div>
+			<div class="patrat" data-lin="5" data-col="4" data-prajituri="1"></div>
+			<div class="patrat" data-lin="5" data-col="5" data-prajituri="3"></div>
+			<div class="patrat" data-lin="5" data-col="6" data-prajituri="2"></div>
+			<div class="patrat" data-lin="5" data-col="7" data-prajituri="6"></div>
+			<div class="patrat" data-lin="5" data-col="8" data-prajituri="0"></div>
+			<div class="patrat" data-lin="6" data-col="0" data-prajituri="2" style="clear: left;"></div>
+			<div class="patrat" data-lin="6" data-col="1" data-prajituri="2"></div>
+			<div class="patrat" data-lin="6" data-col="2" data-prajituri="1"></div>
+			<div class="patrat" data-lin="6" data-col="3" data-prajituri="2"></div>
+			<div class="patrat" data-lin="6" data-col="4" data-prajituri="7"></div>
+			<div class="patrat" data-lin="6" data-col="5" data-prajituri="3"></div>
+			<div class="patrat" data-lin="6" data-col="6" data-prajituri="5"></div>
+			<div class="patrat" data-lin="6" data-col="7" data-prajituri="3"></div>
+			<div class="patrat" data-lin="6" data-col="8" data-prajituri="4"></div>
+			<div class="patrat" data-lin="6" data-col="9" data-prajituri="7"></div>
+			<div class="patrat" data-lin="7" data-col="0" data-prajituri="0" style="clear: left; margin-left: 20px;"></div>
+			<div class="patrat" data-lin="7" data-col="1" data-prajituri="0"></div>
+			<div class="patrat" data-lin="7" data-col="2" data-prajituri="1"></div>
+			<div class="patrat" data-lin="7" data-col="3" data-prajituri="3"></div>
+			<div class="patrat" data-lin="7" data-col="4" data-prajituri="6"></div>
+			<div class="patrat" data-lin="7" data-col="5" data-prajituri="7"></div>
+			<div class="patrat" data-lin="7" data-col="6" data-prajituri="5"></div>
+			<div class="patrat" data-lin="7" data-col="7" data-prajituri="3"></div>
+			<div class="patrat" data-lin="7" data-col="8" data-prajituri="3"></div>
+			<div class="patrat" data-lin="8" data-col="0" data-prajituri="2" style="clear: left;"></div>
+			<div class="patrat" data-lin="8" data-col="1" data-prajituri="2"></div>
+			<div class="patrat" data-lin="8" data-col="2" data-prajituri="5"></div>
+			<div class="patrat" data-lin="8" data-col="3" data-prajituri="6"></div>
+			<div class="patrat" data-lin="8" data-col="4" data-prajituri="7"></div>
+			<div class="patrat" data-lin="8" data-col="5" data-prajituri="0"></div>
+			<div class="patrat" data-lin="8" data-col="6" data-prajituri="1"></div>
+			<div class="patrat" data-lin="8" data-col="7" data-prajituri="6"></div>
+			<div class="patrat" data-lin="8" data-col="8" data-prajituri="7"></div>
+			<div class="patrat" data-lin="8" data-col="9" data-prajituri="0"></div>
+			<div class="patrat" data-lin="9" data-col="0" data-prajituri="2" style="clear: left; margin-left: 20px;"></div>
+			<div class="patrat" data-lin="9" data-col="1" data-prajituri="1"></div>
+			<div class="patrat" data-lin="9" data-col="2" data-prajituri="6"></div>
+			<div class="patrat" data-lin="9" data-col="3" data-prajituri="5"></div>
+			<div class="patrat" data-lin="9" data-col="4" data-prajituri="5"></div>
+			<div class="patrat" data-lin="9" data-col="5" data-prajituri="1"></div>
+			<div class="patrat" data-lin="9" data-col="6" data-prajituri="0"></div>
+			<div class="patrat" data-lin="9" data-col="7" data-prajituri="4"></div>
+			<div class="patrat" data-lin="9" data-col="8" data-prajituri="7"></div>
+
+
+		-->
+		</div>
+
+
+
+		<div id="info_joc">
+
+		</div>
+
+
+
+
+	</body>
+</html>

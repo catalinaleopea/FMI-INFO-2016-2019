@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+	<meta charset="UTF-8"/>
+	<title>O imagine</title>
+	<script>
+	window.onload=function() {
+		var i = 0;
+		var par=document.createElement("p");
+		var txt=document.createTextNode(i);
+		par.appendChild(txt);
+		document.body.appendChild(par);
+		setInterval(creste, 1000);
+		function creste() {
+			i=i+1;
+			var paragrafe=document.getElementsByTagName("p");
+			var pnou=document.createElement("p");
+			var text2=document.createTextNode(i);
+			pnou.appendChild(text2);
+			paragrafe[0].parentNode.replaceChild(pnou,paragrafe[0]);
+		}
+	}
+	</script>
+</head>
+<body>
+</body>
+</html>

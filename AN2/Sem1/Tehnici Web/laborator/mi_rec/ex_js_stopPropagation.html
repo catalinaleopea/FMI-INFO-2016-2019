@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+	<meta charset="UTF-8">
+	<title>StopPropagation</title>
+	<script>
+	window.onload=function(){
+		var k=0;
+		var b=document.getElementsByTagName("button")[0];
+		b.onclick=function(){
+			alert("S-a apasat butonul!");
+			k=1;
+		}
+		var d=document.getElementsByTagName("div")[0];
+		d.style.backgroundColor="blue";
+		d.onclick=function(){
+			if(k==0){
+				d.style.backgroundColor='rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+			}else 
+			k=0;
+		}
+	}
+	</script>
+</head>
+<body>
+	<div>
+		<button name="buton" value="alert">Alerteaza</button>
+	</div>
+</body>
+</html>

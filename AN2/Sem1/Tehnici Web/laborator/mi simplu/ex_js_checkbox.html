@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "UTF-8">
+	<title>Checkbox</title>
+	<script>
+	window.onload=function() {
+		var c1=document.createElement("input");
+		c1.type="checkbox";
+		c1.name="c1";
+		c1.checked=true;
+		var label = document.createElement("label");
+		label.htmlFor = "checkbox 1";
+		label.appendChild(document.createTextNode("checkbox 1"));
+		document.body.appendChild(c1);
+		document.body.appendChild(label);
+
+		var br = document.createElement("br");
+		document.body.appendChild(br);
+
+		var c2=document.createElement("input");
+		c2.type="checkbox";
+		c2.name="c";
+		var label2 = document.createElement("label");
+		label2.htmlFor = "checkbox 2";
+		label2.appendChild(document.createTextNode("checkbox 2"));
+		document.body.appendChild(c2);
+		document.body.appendChild(label2);
+
+		c1.onchange=function(e) {
+			if (c1.checked == true)  {
+				c2.checked=false;
+			} else {
+				c2.checked=true;
+			}
+		}
+		c2.onchange=function(e) {
+			if (c2.checked == true) {
+				c1.checked=false;
+			} else {
+				c1.checked=true;
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<p>Sa se creeze dinamic 2 checkboxuri. Primul sa fie bifat. In orice situate unul dintre checkboxuri trebuie sa fie bifat si celalalt nu, mergand pe cazurile:
+		daca se bifeaza cel nebifat, atunci celalalt se debifeaza automat
+		daca se debifeaza cel bifat, atunci celalalt se bifeaza automat
+	</p>
+</body>
+</html>

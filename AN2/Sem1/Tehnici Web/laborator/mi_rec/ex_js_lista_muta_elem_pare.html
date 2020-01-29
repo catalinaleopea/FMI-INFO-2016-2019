@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>O lista</title>
+	<script>
+	window.onload=function(){
+		var b=document.createElement("button");
+		b.innerHTML="apasa";
+		document.body.appendChild(b);
+
+		var o1=document.getElementsByTagName("ol")[0];
+
+		var o2=document.createElement("ol");
+		document.body.appendChild(o2);
+
+		b.onclick=function(){
+			var copii=o1.children;
+			for(var i=1;i<copii.length;i++)
+				o2.appendChild(copii[i]);
+		}
+	}
+	//am considerat pozitie para in fct de numerotarea listei
+	//altfel,in fct de cati copii are lista..vectorul e de la 0,si aceasta e prima pozitie para.la linia 19 inlocuiesc i cu 0 in initializare
+	</script>
+</head>
+<body>
+	<ol id="lista">
+		<li>Gigel</li>
+		<li>cauta</li>
+		<li>papagali</li>
+		<li>mov</li>
+		<li>pe</li>
+		<li>campia</li>
+		<li>albasta</li>
+		<li>sub</li>
+		<li>soarele</li>
+		<li>verde</li>
+	</ol>
+</body>
+</html>

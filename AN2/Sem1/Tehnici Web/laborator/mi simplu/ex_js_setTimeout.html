@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+	<meta charset="UTF-8"/>
+	<title>O imagine</title>
+	<script>
+	window.onload = function() {
+		var par = document.createElement("p");
+		var txt = document.createTextNode("Hapciu!");
+		par.appendChild(txt);
+		var imagini = document.getElementsByTagName("img");
+		var imagine = imagini[0];
+		imagini[0].onmouseover=function() {
+			imagini[0].parentNode.replaceChild(par,imagini[0]);
+			setTimeout(sfarsit, 3000);
+		}
+		sfarsit =function() {
+			var par=document.getElementsByTagName("p");
+			par[0].parentNode.replaceChild(imagine,par[0]);
+		}
+	}
+	</script>
+</head>
+<body>
+	<img src="http://irinaciocan.ro/tehnici_web/imagini/smiley_zambind.png" alt="zambitor" id="happy"/>
+</body>
+</html>

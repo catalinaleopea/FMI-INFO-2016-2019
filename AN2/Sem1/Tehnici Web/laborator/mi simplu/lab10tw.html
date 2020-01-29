@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> MI 10</title>
+	<script src="sursa.js"></script>
+	<style> 
+	div#text>p{
+		display: inline;
+	}
+	div#radio>p{
+		display: inline;
+	}
+	div#checkbox>p{
+		display: inline;
+	}
+	div#range>p{
+		display: inline;
+	}
+	div#submit{
+		text-align: center;
+	}
+	</style>
+</head>
+<body>
+	<div id="text">
+		<p id="intrebare_text"></p>
+		<input type="number" id="adunare">
+		<p id="rez"></p>
+	</div><br/>
+
+	<div id="radio">
+		<p id="intrebare_radio"></p><br/>
+		<input type="radio" name="radio" id="radiobut1"><p id="rp1"></p>
+		<input type="radio" name="radio" id="radiobut2"><p id="rp2"></p>
+		<input type="radio" name="radio" id="radiobut3"><p id="rp3"></p>
+		<input type="radio" name="radio" id="radiobut4"><p id="rp4"></p>
+		<p id="rez2"></p>
+	</div><br/>
+
+	<div id="checkbox">
+		<p id="intrebare_checkbox"></p><br/>
+		<input type="checkbox" id="box1"><p id="cp1"></p>
+		<input type="checkbox" id="box2"><p id="cp2"></p>
+		<input type="checkbox" id="box3"><p id="cp3"></p>
+		<input type="checkbox" id="box4"><p id="cp4"></p>
+		<p id="rez3"></p>
+	</div><br/>
+
+	<div id="range">
+		<p>Care este media aritmetica a capetelor?</p><br/>
+		<p id="st"></p><input type="range" id="range1"><p id="dr"></p>
+		<p id="rez4"></p>
+	</div><br/>
+
+	<div id="submit">
+		<input type="submit" id="sub" value="Submit" onclick="clicked()">
+		<p id="rezfinal"></p>
+	</div>
+</body>
+</html>

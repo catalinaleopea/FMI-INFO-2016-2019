@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "UTF-8">
+	<title>Radio</title>
+	<script>
+	window.onload=function() {
+		var dim=["mic", "mediu", "mare"];
+		for (var i=0;i<dim.length;i++) {
+			var rad=document.createElement("input");
+			rad.type="radio";
+			rad.name="dim";
+			rad.value=dim[i];
+
+			if(i==1) rad.checked=true;
+
+			var label = document.createElement("label");
+			label.htmlFor = dim[i];
+			label.appendChild(document.createTextNode(dim[i]));
+
+			document.body.appendChild(rad);
+			document.body.appendChild(label);
+
+			rad.onchange=function() {
+				var imag=document.getElementById("poza");
+				var radiouri=document.querySelectorAll("input[type=radio]");
+				var d;
+				for(var i=0;i<radiouri.length;i++){
+					if(radiouri[i].checked==true){
+						d=25*(i+1);
+					}
+				}
+				imag.style.height = d +'px';
+				imag.style.width = d +'px';
+			}
+		}
+		var br = document.createElement("br");
+		document.body.appendChild(br);
+
+		var imag=document.createElement("img");
+		imag.src="http://irinaciocan.ro/imagini/nenea_html.png";
+		imag.id="poza";
+		document.body.appendChild(imag);
+	}
+	</script>
+</head>
+<body>
+	<p>Sa se creeze o pagina cu un grup de radiobutton-uri cu label-urile: mic, mediu, mare, initial bifat fiind mediu. Sub ele va exista o imagine. Cand se bifeaza radiobutton-ul cu label-ul "mic", imaginea ar trebui sa se afiseze micsorata. Daca se rebifeaza radiobutton-ul cu textul "mediu", imaginea se afiseaza cum era intial. Daca se bifeaza cel cu textul "mare" imaginea se afiseaza la dimensiune mai mare.Se da punctaj dublu daca toate elementele sunt create dinamic (adica imaginea si radiobutton-urile sa fie facute prin javascript.</p>
+</body>
+</html>

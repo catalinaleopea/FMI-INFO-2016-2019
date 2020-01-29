@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Select random</title>
+	<script>
+	var n=7;
+	window.onload=function() {
+		var s=document.createElement("select");
+		s.multiple=true;
+		for (var i=1;i<=7;i++) {
+			var opt=document.createElement("option");
+			opt.innerHTML=Math.floor((Math.random()*100)+1);
+			s.appendChild(opt);
+		}
+		document.body.appendChild(s);
+
+		var par=document.createElement("p");
+		par.innerHTML="0";
+		document.body.appendChild(par);
+		s.onchange=function() {
+			var suma=0;
+			var optiuni=this.options;
+			for (var j=0;j<optiuni.length;j++) {
+				if (optiuni[j].selected) {
+					suma= parseInt(suma)+parseInt(optiuni[j].value);
+					par.innerHTML=suma;
+				}
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Un buton</title>
+	<script>
+	var txt= "paragraf";
+	var i = 1;
+	func = function(){
+		var par = document.createElement("p");
+		var res = txt.concat(i);
+		var text = document.createTextNode(res);
+		par.appendChild(text);
+		document.body.appendChild(par);
+		//var corp = document.getElementById("but").parentNode; daca vreti in html direct
+		//daca vreti ca primul element din body
+		var corp = document.getElementById("but").parentNode;
+		corp.insertBefore(par, corp.childNodes[0]);
+		i = i + 1;
+	}
+	</script>
+</head>
+<body id="bd">
+	<button id="but" onclick="func()">Butonash</button>
+</body>
+</html>
