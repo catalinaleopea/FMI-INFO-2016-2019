@@ -1,0 +1,19 @@
+Nume: Leopea Catalina
+Grupa: 343
+Am gasit o coliziune: DA
+Viteza: 239 cycles per byte
+Numarul de testari: 100 000 000
+Mod de generare input: adaugare contor la un string
+Output:
+S = 4, D = 5, Rate = 20, Ratep = 16, DigestSize = 80
+test ::::: 877a1aa68ecf2b276352
+test0 ::::: 2d39c42e9889feee2503
+test1 ::::: 1ee4051ec9c0551b484b
+test2 ::::: 1a95653a47d3adb7e4c6
+test3 ::::: 724ec22a11e6c1f259ff
+test4 ::::: 746f9744a077c51f727e
+test5 ::::: f8304e01ca35339e6bda
+test6 ::::: 0f6b3e89aaccc4d56048
+test7 ::::: a1f48382b54c9d8aab60
+test8 ::::: 99ee72f068b03f2f88ef
+test9 ::::: 877a1aa68ecf2b276352
