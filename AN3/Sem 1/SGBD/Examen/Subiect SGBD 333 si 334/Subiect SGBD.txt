@@ -1,0 +1,23 @@
+Subiect SGBD dat la 333 si 334
+
+1. a) Care sunt pasii executati cand un trigger apeleaza o procedura stocata?
+b) Ce este un SGBD? Dati 2 exemple
+
+AGENTIE_IMOBILIARA ( id_agentie, denumire, clasificare )
+TRANZACTIONEAZA(cod_agentie, cod_imobil, data_tranzactiei, tip, valoare_comision, pret) unde tip inseamna vanzare 
+sau inchiriere
+IMOBIL(id_imobil, adresa, cod_proprietar, tip) unde tip inseamna casa, teren sau apartament
+PROPRIETAR(id_proprietar, nume)
+
+2. Adaugati o coloana de tip colectie la AGENTIE_IMOBILIARA care sa contina numarul de tranzactii de tip vanzare si numarul de inchirieri efectuate de
+fiecare agentie. Presupunand ca acesteau au fost actualizate, modificati clasificarea fiecarei agentii in functie de numarul de preponderent in 'rent', daca
+numarul de inchirieri efectuate este mai mare, sau in 'sales' in caz contrar.
+
+3. Creati un subprogram pentru care ii transmiteti un an transmis ca parametru, afisati pentru fiecare agentie : denumirea ei, adresa tuturor imobilelor pe care
+le-a tranzactionat si totalul care l-a obtinut din acestea.
+
+4. Creati un trigger care micsoreaza valoarea comisionului cu 25% pentru proprietarii care au facut cel putin 3 tranzactii. Triggerul se va declansa atunci cand
+se va insera o noua tranzactie.
+
+5. Creati un subprogram care pentru un nume de proprietar dat ca parametru, intoarce numarul de apartamente care acesta le-a tranzactionat cu firmele care au cele mai
+multe de tranzactii incheiate. Tratati exceptiile ce pot aparea.

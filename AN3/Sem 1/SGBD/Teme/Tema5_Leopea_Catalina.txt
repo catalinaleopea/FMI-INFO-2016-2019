@@ -1,0 +1,298 @@
+--Leopea Catalina, grupa 343
+--1
+create or replace package emp_mcg_p as
+
+--a)
+function get_manager(v_nume emp_bad.first_name%type,v_prenume emp_bad.last_name%type)
+return emp_bad.employee_id%type;
+
+
+function get_dept(v_nume departments.department_name%type)
+return departments.department_id%type;
+
+
+function get_job(v_nume jobs.job_title%type)
+return jobs.job_id%type;
+
+
+procedure a_emp
+    (v_nume emp_bad.first_name%type,
+    v_prenume emp_bad.last_name%type,
+    v_pnumber emp_bad.phone_number%type,
+    v_email emp_bad.email%type,
+    v_manager_nume emp_bad.first_name%type,
+    v_manager_prenume  emp_bad.last_name%type,
+    v_dept departments.department_name%type,
+    v_job jobs.job_title%type);
+
+--b)
+function right_salary
+(v_nume emp_bad.first_name%type, 
+v_prenume emp_bad.last_name%type,
+v_dept departments.department_name%type)
+return emp_bad.salary%type;
+
+procedure m_emp
+    (v_nume emp_bad.first_name%type,
+    v_prenume emp_bad.last_name%type,
+    v_dept departments.department_name%type,
+    v_job jobs.job_title%type,
+    v_manager_nume emp_bad.first_name%type,
+    v_manager_prenume  emp_bad.last_name%type);
+
+--c)
+function manager_hier
+(v_nume emp_bad.first_name%type,
+v_prenume emp_bad.last_name%type)
+return number;
+
+--e)
+procedure emp_sal_m 
+(v_sal emp_bad.salary%type,
+v_nume emp_bad.last_name%type);
+--h)
+procedure job_hist_check;
+
+--f)
+cursor j_emp(id_job jobs.job_id%type) return emp_bad%rowtype; 
+
+--g)
+cursor jobs_emp return jobs%rowtype; 
+end emp_mcg_p;
+/
+
+create or replace package body emp_mcg_p as
+--f)
+cursor  j_emp(id_job jobs.job_id%type) return emp_bad%rowtype
+ is
+ select *
+ from emp_bad
+ where job_id = id_job;
+
+--g)
+cursor jobs_emp return jobs%ROWTYPE
+is
+select *
+from jobs;
+
+--a)
+function get_manager(v_nume emp_bad.first_name%type,v_prenume emp_bad.last_name%type)
+return emp_bad.employee_id%type is
+    id_emp emp_bad.employee_id%type;
+begin
+    select employee_id
+    into id_emp
+    from emp_bad
+    where first_name = v_nume and last_name = v_prenume;
+return id_emp;
+ exception
+ when NO_DATA_FOUND then
+ DBMS_OUTPUT.PUT_LINE('Nu exista angajati cu numele dat');
+ when too_many_rows then
+ dbms_output.put_line('Exista mai multi angajati '||
+ 'cu numele dat');
+ when others then
+ dbms_output.put_line('Alta eroare!');
+end get_manager;
+
+function get_dept(v_nume departments.department_name%type)
+return departments.department_id%type is
+id_dept departments.department_id%type;
+begin 
+    select department_id
+    into id_dept
+    from departments
+    where department_name = v_nume;
+return id_dept;
+ exception
+ when NO_DATA_FOUND then
+ DBMS_OUTPUT.PUT_LINE('Nu exista departamentul cu numele dat');
+ when too_many_rows then
+ dbms_output.put_line('Exista mai multe departamente'||
+ 'cu numele dat');
+ when others then
+ dbms_output.put_line('Alta eroare!');
+end;
+
+function get_job(v_nume jobs.job_title%type)
+return jobs.job_id%type is
+id_job jobs.job_id%type;
+begin
+    select job_id
+    into id_job
+    from jobs
+    where job_title = v_nume;
+return id_job;
+ exception
+ when NO_DATA_FOUND then
+ dbms_output.put_line('Nu exista jobul cu numele dat');
+ when too_many_rows then
+ dbms_output.put_line('Exista mai multe joburi '||
+ 'cu numele dat');
+ when others then
+ dbms_output.put_line('Alta eroare!');
+end;
+
+procedure a_emp
+    (v_nume emp_bad.first_name%type,
+    v_prenume emp_bad.last_name%type,
+    v_pnumber emp_bad.phone_number%type,
+    v_email emp_bad.email%type,
+    v_manager_nume emp_bad.first_name%type,
+    v_manager_prenume  emp_bad.last_name%type,
+    v_dept departments.department_name%type,
+    v_job jobs.job_title%type)
+as
+    v_manager number := get_manager(v_manager_prenume,v_manager_nume);
+    v_dept_id number := get_dept(v_dept);
+    v_job_id jobs.job_id%type := get_job(v_job);
+    begin
+        insert into emp_bad
+        values(employees_seq.nextval,v_nume,v_prenume,v_email,v_pnumber,SYSDATE,v_job_id,(select min(salary) from emp_bad),null,v_manager,v_dept_id);
+end a_emp;
+
+--b)
+function right_salary
+(v_nume emp_bad.first_name%type, 
+v_prenume emp_bad.last_name%type,
+v_dept departments.department_name%type)
+return emp_bad.salary%type is
+r_salary emp_bad.salary%type;
+c_salary emp_bad.salary%type;
+ begin
+    select min(salary)
+    into r_salary 
+    from emp_bad 
+    where department_id = v_dept;
+    
+    select salary
+    into c_salary 
+    from emp_bad 
+    where first_name = v_nume and last_name = v_prenume;
+    
+    if r_salary <= c_salary then
+        r_salary := c_salary;
+    end if;
+return r_salary;
+exception
+ when NO_DATA_FOUND then
+ DBMS_OUTPUT.PUT_LINE('Nu exista angajati cu numele dat');
+ when too_many_rows then
+ dbms_output.put_line('Exista mai multi angajati '||
+ 'cu numele dat');
+ when others then
+ dbms_output.put_line('Alta eroare!');
+end;
+
+procedure m_emp
+    (v_nume emp_bad.first_name%type,
+    v_prenume emp_bad.last_name%type,
+    v_dept departments.department_name%type,
+    v_job jobs.job_title%type,
+    v_manager_nume emp_bad.first_name%type,
+    v_manager_prenume  emp_bad.last_name%type) as
+    v_manager number := get_manager(v_manager_prenume,v_manager_nume);
+    v_dept_id number := get_dept(v_dept);
+    v_job_id jobs.job_id%type := get_job(v_job);
+    v_salary emp_bad.salary%type := right_salary(v_nume,v_prenume,v_dept_id);
+    begin
+        update emp_bad set manager_id = v_manager, department_id = v_dept_id, job_id = v_job_id, salary = v_salary, commission_pct = (select min(commission_pct) from emp_bad where job_id = v_job_id and department_id = v_dept_id),hire_date = sysdate
+        where first_name = v_nume and last_name = v_prenume;
+        insert into jh_mcg values( (select employee_id from emp_bad where first_name = v_nume and last_name = v_prenume),
+        (select hire_date from emp_bad where first_name = v_nume and last_name = v_prenume),
+        sysdate,
+        v_job_id,
+        v_dept_id);
+        commit;
+end m_emp;
+
+--c)
+function manager_hier
+(v_nume emp_bad.first_name%type,
+v_prenume emp_bad.last_name%type)
+return number is
+emp_count number;
+begin
+    with emp_heir as(
+    select  employee_id,manager_id,first_name
+    from emp_bad
+    where first_name = v_nume and last_name = v_prenume)
+    select count(employee_id)
+    into emp_count
+    from emp_bad
+    where employee_id in (select child.employee_id
+    from emp_bad child
+    join emp_heir parent
+    on child.manager_id = parent.employee_id)
+    or 
+    manager_id in
+    (select child.employee_id
+    from emp_bad child
+    join emp_heir parent
+    on child.manager_id = parent.employee_id);
+    return emp_count;
+exception
+ when NO_DATA_FOUND then
+ DBMS_OUTPUT.PUT_LINE('Nu exista angajati cu numele dat');
+ when too_many_rows then
+ dbms_output.put_line('Exista mai multi angajati '||
+ 'cu numele dat');
+ when others then
+ dbms_output.put_line('Alta eroare!');
+end;
+
+--e)
+procedure emp_sal_m 
+(v_sal emp_bad.salary%type,
+v_nume emp_bad.last_name%type) as
+v_min number;
+v_max number;
+cursor emps return emp_bad%rowtype is
+select *
+from emp_bad
+where last_name = v_nume;
+emps_count number := 0;
+begin
+    select min(salary) into v_min from emp_bad where department_id = (select department_id from emp_bad where last_name = v_nume);
+    select max(salary) into v_max from emp_bad where department_id = (select department_id from emp_bad where last_name = v_nume);
+    for i in emps loop
+    emps_count := emps_count + 1;
+    end loop;
+    if emps_count > 1 then
+        dbms_output.put_line('Exista mai mult de un angajat cu acest nume');
+    elsif emps_count = 0 then
+        dbms_output.put_line('Nu exista angajat cu acest nume');
+    elsif v_sal <= v_max and v_sal >= v_min then
+        update emp_bad set salary = v_sal where last_name = v_nume;
+        commit;
+    end if;
+end emp_sal_m;
+
+--h)
+procedure job_hist_check as
+worked number:=0;
+begin
+for i in jobs_emp loop
+dbms_output.put_line('Jobul '||i.job_title||' are angajatii:');
+    for j in j_emp(i.job_id) loop
+    dbms_output.put_line(j.first_name||' '||j.last_name);
+   select nvl((select employee_id  from jh_mcg where employee_id = j.employee_id and job_id = i.job_id),0) into worked from dual;
+    
+    if worked != 0 then 
+    dbms_output.put_line('A mai lucrat in '||i.job_title);
+    end if;
+    worked := 0;
+    end loop;
+end loop;
+end job_hist_check;
+end emp_mcg_p;
+/
+
+create table jh_mcg as (select * from job_history);
+execute emp_mcg_p.a_emp('Vasile','Pielosu','0766666666','vasilepielosu@gmail.com','Errazuriz','Alberto','Sales','Stock Clerk');
+execute emp_mcg_p.emp_sal_m(2500,'Vasile');
+execute emp_mcg_p.job_hist_check;
+select emp_mcg_p.manager_hier('Alberto','Errazuriz') from dual;
+select * from emp_bad;
+
+rollback;

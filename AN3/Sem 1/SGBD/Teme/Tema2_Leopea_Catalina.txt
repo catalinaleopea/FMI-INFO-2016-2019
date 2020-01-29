@@ -1,0 +1,77 @@
+--Leopea Catalina, grupa 343
+--4
+
+DECLARE
+    v_nume MEMBER.FIRST_NAME%TYPE := '&p_nume';
+    v_nr NUMBER(4);
+    v_nr2 v_nr%TYPE;
+    v_total v_nr2%TYPE;
+    v_categorie varchar(30);
+BEGIN
+    SELECT COUNT(r.title_id)
+    INTO v_nr
+    FROM RENTAL r
+    JOIN MEMBER m on (r.member_id = m.member_id)
+    WHERE m.first_name = v_nume;
+    SELECT
+        COUNT(first_name) INTO v_nr2
+    FROM MEMBER
+    WHERE first_name = v_nume;
+    SELECT COUNT(t.title_id)
+    INTO v_total
+    FROM TITLE t;
+    IF v_nr2 = 0
+        THEN RAISE_APPLICATION_ERROR(-20001, 'Membrul nu exista');
+    ELSIF v_nr2 = 1 
+        THEN DBMS_OUTPUT.PUT_LINE('Membrul ' || v_nume || ' a imprumutat ' || v_nr || ' filme.');
+    ELSE
+        RAISE_APPLICATION_ERROR(-20002,'Exista mai multi membri cu acest nume');
+    END IF;
+    
+    CASE 
+        WHEN v_nr > 0.75 * v_total
+        THEN v_discount :=10;
+        WHEN v_nr > 0.5 * v_total
+        THEN v_discount :=5;
+        WHEN v_nr > 0.25 * v_total
+        THEN v_discount :=3;
+    ELSE
+        v_discount :=0;
+    END CASE;  
+END;
+
+--5
+CREATE TABLE member_copy AS SELECT * FROM member;
+ALTER TABLE member_copy
+ADD discount NUMBER(3);
+DECLARE
+    v_nume MEMBER.FIRST_NAME%TYPE;-- := '&p_nume';
+    v_nr NUMBER(4);
+    v_nr2 v_nr%TYPE;
+    v_total v_nr2%TYPE;
+    v_discount varchar(30);
+    v_member_id member.member_id%TYPE :=&p_cod;
+BEGIN
+    SELECT COUNT(r.title_id)
+    INTO v_nr
+    FROM RENTAL r
+    JOIN MEMBER m on (r.member_id = m.member_id)
+    WHERE m.MEMBER_ID = v_member_id;
+    SELECT COUNT(t.title_id)
+    INTO v_total
+    FROM TITLE t;
+   CASE 
+        WHEN v_nr > 0.75 * v_total
+        THEN v_discount :=10;
+        WHEN v_nr > 0.5 * v_total
+        THEN v_discount :=5;
+        WHEN v_nr > 0.25 * v_total
+        THEN v_discount :=3;
+    ELSE
+        v_discount :=0;
+    END CASE;  
+    UPDATE member_copy 
+    SET discount = v_discount
+    WHERE member_id = v_member_id;
+    DBMS_OUTPUT.PUT_LINE('Au fost actualizate '||SQL%ROWCOUNT||' lini');
+END;

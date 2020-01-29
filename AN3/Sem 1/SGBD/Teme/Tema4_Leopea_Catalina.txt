@@ -1,0 +1,62 @@
+--Leopea Catalina, grupa 343
+--5
+DECLARE
+    TYPE cursor_referinta IS REF CURSOR;
+    CURSOR v_job_emp IS SELECT job_title, 
+    CURSOR(SELECT last_name,first_name, salary, commission_pct
+           FROM employees e
+           WHERE e.job_id=j.job_id
+           ORDER BY salary DESC)
+    FROM jobs j;
+    v_titlu jobs.job_title%TYPE;
+    v_nume employees.last_name%TYPE;
+    v_prenume employees.first_name%TYPE;
+    v_cursor cursor_referinta;
+    v_sal employees.salary%TYPE;
+    v_salAnt employees.salary%TYPE;
+    v_comPct employees.commission_pct%TYPE;
+    v_nrOrdine NUMBER := 0;
+    v_nrOrdineEmp NUMBER := 0;
+    v_suma NUMBER(8,2);
+    v_sumaTotal Number(8,2) := 0;
+    v_nrAngTotal NUMBER := 0;
+    v_sumaCom NUMBER(8,2) := 0;
+    v_countSal NUMBER(8,2) := 0;
+    v_countCom NUMBER(8,2) := 0;
+BEGIN
+    select sum(salary),sum(salary*nvl(commission_pct,0)) 
+    into v_countSal, v_countCom 
+    from employees;
+
+    OPEN v_job_emp;
+
+    LOOP
+    FETCH v_job_emp INTO v_titlu,v_cursor;
+    EXIT WHEN v_job_emp%NOTFOUND;
+    v_nrOrdine := v_nrOrdine +1;
+    DBMS_OUTPUT.PUT_LINE('---------------');
+    DBMS_OUTPUT.PUT_LINE(v_nrOrdine||'. '|| v_titlu);
+    DBMS_OUTPUT.PUT_LINE('---------------');
+    v_nrOrdineEmp := 0;
+    v_suma := 0;
+    v_salAnt := 0;
+        LOOP
+        FETCH v_cursor INTO v_nume,v_prenume, v_sal, v_comPct;
+        EXIT WHEN v_cursor%NOTFOUND OR v_cursor%ROWCOUNT > 5;
+        IF v_salAnt != v_sal THEN
+            v_nrOrdineEmp := v_nrOrdineEmp +1;
+        END IF;
+        v_salAnt := v_sal;
+        v_suma := v_suma + v_sal ;
+        v_sumaCom := v_sumaCom + v_sal*nvl(v_comPct,0);
+        DBMS_OUTPUT.PUT_LINE(v_nrOrdineEmp||' '||v_nume||' ' ||v_prenume || ' ' || v_sal);
+        END LOOP;
+    IF v_nrOrdineEmp < 5
+        THEN DBMS_OUTPUT.PUT_LINE('Departamentul are mai putin de 5 angajati');
+    END IF;
+    v_sumaTotal := v_sumaTotal + v_suma;
+    v_nrAngTotal := v_nrAngTotal + v_nrOrdineEmp;
+    END LOOP;
+    CLOSE v_job_emp;
+END;
+/
